@@ -10,6 +10,10 @@ on:
         description: "Só testar (não envia)"
         type: boolean
         default: false
+      listar_grupos:
+        description: "Só listar meus grupos e seus IDs (não gera boletim)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -35,15 +39,20 @@ jobs:
       - name: Gerar e enviar boletim
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GREEN_API_URL: ${{ secrets.GREEN_API_URL }}
+          GREEN_ID_INSTANCE: ${{ secrets.GREEN_ID_INSTANCE }}
+          GREEN_API_TOKEN: ${{ secrets.GREEN_API_TOKEN }}
+          WHATSAPP_DESTINOS: ${{ secrets.WHATSAPP_DESTINOS }}
           WHATSAPP_PHONE: ${{ secrets.WHATSAPP_PHONE }}
           CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           INCLUIR_LINKS: ${{ vars.INCLUIR_LINKS }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          LISTAR_GRUPOS: ${{ inputs.listar_grupos && '1' || '0' }}
         run: python noticias_whatsapp.py
 
       - name: Salvar histórico (evita repetir notícias)
-        if: success()
+        if: success() && inputs.listar_grupos != true
         run: |
           git config user.name "bom-dia-bot"
           git config user.email "bom-dia-bot@users.noreply.github.com"
