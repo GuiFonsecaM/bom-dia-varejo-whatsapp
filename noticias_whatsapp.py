@@ -180,6 +180,8 @@ Regras de estilo (obrigatórias):
   • "topicos": 3 a 5 tópicos (até 30 palavras cada) com números, contexto, comparações (ano anterior,
     concorrentes, média do setor), causas e próximos passos. Não repita o que já está no resumo.
 - Não escreva "Para o varejo" nem seções de impacto ou análise separadas.
+- Tópicos sem numeração e sem marcador no início do texto (o marcador é colocado depois).
+- Os tópicos são texto puro, sem numeração (nada de "1.", "2)") e sem marcador no início — o marcador é colocado depois.
 - Nunca use a expressão "leitura editorial".
 - Não invente fatos nem números: use só o que está nas manchetes fornecidas ou o que foi confirmado em pesquisa.
 - Junte em um item só notícias diferentes sobre o mesmo fato.
@@ -325,8 +327,11 @@ def monta_blocos(boletim: dict, itens: list[dict]) -> list[str]:
             txt = f"🟠 *{n['titulo'].strip()}*"
             if (n.get("resumo") or "").strip():
                 txt += f"\n{n['resumo'].strip()}"
-            topicos = [t.strip() for t in n.get("topicos", [])
-                       if t and t.strip() and not re.match(r"^para o varejo", t.strip(), re.I)]
+            # tira numeração/marcador que a IA às vezes coloca ("1.", "2)", "-", "•")
+            # ("1. x" sai; "1º trimestre", "1.500 lojas" e "2026 foi" ficam intactos)
+            topicos = [re.sub(r"^\s*(?:\d{1,2}\s*[.):\-–]\s+|[-•*–·▪●]\s*)", "", t).strip()
+                       for t in n.get("topicos", []) if t and t.strip()]
+            topicos = [t for t in topicos if t and not re.match(r"^para o varejo", t, re.I)]
             if topicos:
                 txt += "\n" + "".join(f"\n• {t}" for t in topicos)
             if fontes:
