@@ -188,35 +188,65 @@ Responda SOMENTE com JSON neste formato:
 Limites: até {mv} itens em varejo, {me} em economia, {mm} em mundo. Use apenas ids da lista."""
 
 
+def extrai_json(texto: str) -> dict:
+    texto = re.sub(r"```(json)?", "", texto).strip()
+    ini, fim = texto.find("{"), texto.rfind("}")
+    return json.loads(texto[ini:fim + 1])
+
+
 def chama_gemini(prompt: str) -> dict | None:
     chave = os.getenv("GEMINI_API_KEY")
     if not chave:
         print("  ! GEMINI_API_KEY ausente — usando modo simples")
         return None
-    corpo = {
-        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.4, "responseMimeType": "application/json"},
-    }
-    for modelo in MODELOS_GEMINI:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
-        for tentativa in range(3):
-            try:
-                r = requests.post(url, params={"key": chave}, json=corpo, timeout=120)
-                if r.status_code == 404:
-                    print(f"  ! modelo {modelo} indisponível")
-                    break
-                if r.status_code in (429, 500, 503):
-                    time.sleep(15 * (tentativa + 1))
-                    continue
-                r.raise_for_status()
-                texto = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-                texto = re.sub(r"^```(json)?|```$", "", texto.strip()).strip()
-                print(f"  ✓ redigido com {modelo}")
-                return json.loads(texto)
-            except Exception as e:
-                print(f"  ! {modelo} tentativa {tentativa + 1}: {e}")
-                time.sleep(5)
+
+    # 1º tenta COM Busca Google (checa os fatos); se não der, tenta sem.
+    modos = [
+        ("com busca Google", {
+            "contents": [{"role": "user", "parts": [{"text": prompt + CHECAGEM}]}],
+            "tools": [{"google_search": {}}],
+            "generationConfig": {"temperature": 0.2},
+        }),
+        ("sem busca", {
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"},
+        }),
+    ]
+    for nome_modo, corpo in modos:
+        for modelo in MODELOS_GEMINI:
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
+            for tentativa in range(3):
+                try:
+                    r = requests.post(url, headers={"x-goog-api-key": chave}, json=corpo, timeout=180)
+                    if r.status_code in (401, 403):
+                        print(f"  ! chave recusada ({r.status_code}): {r.text[:200]}")
+                        return None
+                    if r.status_code in (400, 404):
+                        print(f"  ! {modelo} ({nome_modo}) indisponível: {r.status_code}")
+                        break
+                    if r.status_code in (429, 500, 503):
+                        time.sleep(15 * (tentativa + 1))
+                        continue
+                    r.raise_for_status()
+                    partes = r.json()["candidates"][0]["content"]["parts"]
+                    texto = "".join(p.get("text", "") for p in partes)
+                    dados = extrai_json(texto)
+                    print(f"  ✓ redigido com {modelo} ({nome_modo})")
+                    return dados
+                except Exception as e:
+                    print(f"  ! {modelo} ({nome_modo}) tentativa {tentativa + 1}: {e}")
+                    time.sleep(5)
     return None
+
+
+CHECAGEM = """
+
+CHECAGEM DE FATOS (obrigatória):
+- Antes de escrever cada notícia, pesquise no Google e confirme os fatos, números e datas.
+- Os tópicos devem vir do que a busca confirmou, não de memória.
+- Se não conseguir confirmar uma notícia, descarte-a.
+- Confirme também a curiosidade.
+Responda apenas com o JSON, sem texto antes ou depois."""
 
 
 def redige(itens: list[dict], hist: dict) -> dict | None:
@@ -314,14 +344,21 @@ def envia_whatsapp(texto: str) -> bool:
     if not phone or not key:
         print("  ! WHATSAPP_PHONE / CALLMEBOT_APIKEY ausentes")
         return False
+    erros = ("apikey is invalid", "invalid apikey", "not valid", "you need to get", "not activated",
+             "error", "blocked", "too many")
     for tentativa in range(3):
         try:
             r = requests.get("https://api.callmebot.com/whatsapp.php",
                              params={"phone": phone, "text": texto, "apikey": key}, timeout=60)
-            ok = r.status_code == 200 and "error" not in r.text.lower()
-            if ok:
+            resposta = re.sub(r"\s+", " ", re.sub("<[^>]+>", " ", r.text))
+            # A página ecoa o texto enviado; o status do envio vem depois dele
+            final = resposta.split("Text to send:")[-1][-300:].lower()
+            if 200 <= r.status_code < 300 and not any(e in final for e in erros):
+                print(f"  ✓ CallMeBot ({r.status_code}): {resposta[-120:].strip()}")
                 return True
-            print(f"  ! CallMeBot respondeu {r.status_code}: {re.sub('<[^>]+>', ' ', r.text)[:200]}")
+            print(f"  ! CallMeBot ({r.status_code}): {resposta[-300:].strip()}")
+            if 200 <= r.status_code < 300:
+                return False  # erro de chave/número: repetir não adianta
         except Exception as e:
             print(f"  ! erro no envio: {e}")
         time.sleep(20)
