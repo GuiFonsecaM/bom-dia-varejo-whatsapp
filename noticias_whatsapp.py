@@ -338,30 +338,73 @@ def agrupa(blocos: list[str], limite: int = 1400) -> list[str]:
 # --------------------------------------------------------------------------
 # 4. Envio
 # --------------------------------------------------------------------------
-def envia_whatsapp(texto: str) -> bool:
-    phone = os.getenv("WHATSAPP_PHONE", "").strip()
-    key = os.getenv("CALLMEBOT_APIKEY", "").strip()
-    if not phone or not key:
-        print("  ! WHATSAPP_PHONE / CALLMEBOT_APIKEY ausentes")
-        return False
-    erros = ("apikey is invalid", "invalid apikey", "not valid", "you need to get", "not activated",
-             "error", "blocked", "too many")
-    for tentativa in range(3):
+ERROS_CALLMEBOT = ("apikey is invalid", "invalid apikey", "not valid", "you need to get", "not activated",
+                   "error", "blocked", "too many")
+_NUMERO_OK: str | None = None  # versão do número que funcionou nesta execução
+
+
+def limpa_numero(bruto: str) -> str:
+    digitos = re.sub(r"\D", "", bruto)
+    if not digitos.startswith("55") and len(digitos) in (10, 11):
+        digitos = "55" + digitos  # digitou só DDD + número
+    return "+" + digitos
+
+
+def variantes_numero(phone: str) -> list[str]:
+    """Números do Brasil podem estar no WhatsApp com ou sem o 9 extra."""
+    d = phone.lstrip("+")
+    vs = [phone]
+    if d.startswith("55") and len(d) == 13 and d[4] == "9":
+        vs.append("+" + d[:4] + d[5:])          # tira o 9
+    elif d.startswith("55") and len(d) == 12:
+        vs.append("+" + d[:4] + "9" + d[4:])    # põe o 9
+    return vs
+
+
+def mascara(phone: str) -> str:
+    return f"{phone[:5]}•••••{phone[-4:]} ({len(phone) - 1} dígitos)"
+
+
+def _tenta_envio(phone: str, key: str, texto: str) -> tuple[bool, bool]:
+    """Devolve (enviou, chave_ou_numero_invalido)."""
+    for _ in range(3):
         try:
             r = requests.get("https://api.callmebot.com/whatsapp.php",
                              params={"phone": phone, "text": texto, "apikey": key}, timeout=60)
             resposta = re.sub(r"\s+", " ", re.sub("<[^>]+>", " ", r.text))
             # A página ecoa o texto enviado; o status do envio vem depois dele
             final = resposta.split("Text to send:")[-1][-300:].lower()
-            if 200 <= r.status_code < 300 and not any(e in final for e in erros):
-                print(f"  ✓ CallMeBot ({r.status_code}): {resposta[-120:].strip()}")
-                return True
-            print(f"  ! CallMeBot ({r.status_code}): {resposta[-300:].strip()}")
+            if 200 <= r.status_code < 300 and not any(e in final for e in ERROS_CALLMEBOT):
+                print(f"  ✓ CallMeBot ({r.status_code}) para {mascara(phone)}")
+                return True, False
+            print(f"  ! CallMeBot ({r.status_code}) para {mascara(phone)}: {final[-110:].strip()}")
             if 200 <= r.status_code < 300:
-                return False  # erro de chave/número: repetir não adianta
+                return False, True  # erro de chave/número: repetir não adianta
         except Exception as e:
             print(f"  ! erro no envio: {e}")
         time.sleep(20)
+    return False, False
+
+
+def envia_whatsapp(texto: str) -> bool:
+    global _NUMERO_OK
+    phone = limpa_numero(os.getenv("WHATSAPP_PHONE", ""))
+    key = re.sub(r"\D", "", os.getenv("CALLMEBOT_APIKEY", ""))
+    if len(phone) < 12 or not key:
+        print("  ! WHATSAPP_PHONE / CALLMEBOT_APIKEY ausentes ou vazios")
+        return False
+
+    for numero in ([_NUMERO_OK] if _NUMERO_OK else variantes_numero(phone)):
+        enviou, invalido = _tenta_envio(numero, key, texto)
+        if enviou:
+            if numero != phone and _NUMERO_OK is None:
+                print(f"  ℹ funcionou com {mascara(numero)} — use esse formato no secret WHATSAPP_PHONE")
+            _NUMERO_OK = numero
+            return True
+        if not invalido:
+            return False
+    print(f"  ℹ chave com {len(key)} dígitos; número testado: "
+          + " e ".join(mascara(n) for n in variantes_numero(phone)))
     return False
 
 
