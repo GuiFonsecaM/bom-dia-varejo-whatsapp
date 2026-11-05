@@ -179,9 +179,7 @@ Regras de estilo (obrigatórias):
   • "resumo": parágrafo de 2 a 3 frases no estilo lead jornalístico (o quê, quem, quando, onde e por quê).
   • "topicos": 3 a 5 tópicos (até 30 palavras cada) com números, contexto, comparações (ano anterior,
     concorrentes, média do setor), causas e próximos passos. Não repita o que já está no resumo.
-  • "impacto": 1 a 2 frases sobre o efeito prático para varejo e atacarejo (preço, margem, demanda,
-    concorrência, crédito, operação). Na seção "mundo", o efeito para o Brasil ou para o consumo;
-    se não houver efeito real, deixe vazio. Não comece com "Para o varejo:".
+- Não escreva "Para o varejo" nem seções de impacto ou análise separadas.
 - Nunca use a expressão "leitura editorial".
 - Não invente fatos nem números: use só o que está nas manchetes fornecidas ou o que foi confirmado em pesquisa.
 - Junte em um item só notícias diferentes sobre o mesmo fato.
@@ -195,9 +193,9 @@ Regras de estilo (obrigatórias):
 Responda SOMENTE com JSON neste formato:
 {{
   "abertura": "1 a 2 frases neutras resumindo os principais assuntos do dia",
-  "varejo":   [{{"ids": [1, 4], "titulo": "...", "resumo": "...", "topicos": ["...", "...", "..."], "impacto": "..."}}],
-  "economia": [{{"ids": [7],    "titulo": "...", "resumo": "...", "topicos": ["...", "...", "..."], "impacto": "..."}}],
-  "mundo":    [{{"ids": [12],   "titulo": "...", "resumo": "...", "topicos": ["...", "...", "..."], "impacto": ""}}],
+  "varejo":   [{{"ids": [1, 4], "titulo": "...", "resumo": "...", "topicos": ["...", "...", "..."]}}],
+  "economia": [{{"ids": [7],    "titulo": "...", "resumo": "...", "topicos": ["...", "...", "..."]}}],
+  "mundo":    [{{"ids": [12],   "titulo": "...", "resumo": "...", "topicos": ["...", "...", "..."]}}],
   "curiosidade": {{"titulo": "...", "texto": "3 a 4 frases"}}
 }}
 Limites: até {mv} itens em varejo, {me} em economia, {mm} em mundo. Use apenas ids da lista."""
@@ -327,12 +325,10 @@ def monta_blocos(boletim: dict, itens: list[dict]) -> list[str]:
             txt = f"🟠 *{n['titulo'].strip()}*"
             if (n.get("resumo") or "").strip():
                 txt += f"\n{n['resumo'].strip()}"
-            topicos = [t.strip() for t in n.get("topicos", []) if t and t.strip()]
+            topicos = [t.strip() for t in n.get("topicos", [])
+                       if t and t.strip() and not re.match(r"^para o varejo", t.strip(), re.I)]
             if topicos:
                 txt += "\n" + "".join(f"\n• {t}" for t in topicos)
-            impacto = re.sub(r"^para o varejo:\s*", "", (n.get("impacto") or "").strip(), flags=re.I)
-            if impacto:
-                txt += f"\n\n📌 *Para o varejo:* {impacto}"
             if fontes:
                 txt += f"\n\n_Fonte: {', '.join(fontes[:2])}_"
             if INCLUIR_LINKS and ids:
