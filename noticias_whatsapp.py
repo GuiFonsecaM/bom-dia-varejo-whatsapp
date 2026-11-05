@@ -175,24 +175,30 @@ Escreva em português do Brasil, tom jornalístico, direto e com credibilidade.
 
 Regras de estilo (obrigatórias):
 - Títulos são manchetes informativas, estilo portal de notícias. Nada de frases de efeito, trocadilhos ou clickbait.
-- Cada notícia tem 2 ou 3 tópicos curtos (máx. 20 palavras cada) com os fatos e números principais.
-- Sempre que fizer sentido, o último tópico explica o impacto prático para o varejo/atacarejo, começando com "Para o varejo:".
+- Cada notícia é detalhada, para o leitor entender o assunto sem abrir o link:
+  • "resumo": parágrafo de 2 a 3 frases no estilo lead jornalístico (o quê, quem, quando, onde e por quê).
+  • "topicos": 3 a 5 tópicos (até 30 palavras cada) com números, contexto, comparações (ano anterior,
+    concorrentes, média do setor), causas e próximos passos. Não repita o que já está no resumo.
+  • "impacto": 1 a 2 frases sobre o efeito prático para varejo e atacarejo (preço, margem, demanda,
+    concorrência, crédito, operação). Na seção "mundo", o efeito para o Brasil ou para o consumo;
+    se não houver efeito real, deixe vazio. Não comece com "Para o varejo:".
 - Nunca use a expressão "leitura editorial".
-- Não invente fatos nem números: use só o que está nas manchetes e resumos fornecidos.
+- Não invente fatos nem números: use só o que está nas manchetes fornecidas ou o que foi confirmado em pesquisa.
 - Junte em um item só notícias diferentes sobre o mesmo fato.
 - Ignore notícias que repetem assuntos da lista "JÁ ENVIADOS".
 - Priorize: concorrentes (Atacadão, Assaí, Carrefour, Grupo Mateus, Pão de Açúcar, Supermercados BH, DMA), Mart Minas, Minas Gerais, preços de alimentos, juros, consumo e comportamento do consumidor.
 - Na seção "mundo", escolha os fatos internacionais mais relevantes do dia (não precisam ser de varejo).
-- Crie uma curiosidade verdadeira e verificável sobre varejo/atacarejo/supermercados, diferente das já usadas.
+- Crie uma curiosidade verdadeira e verificável sobre varejo/atacarejo/supermercados, diferente das já usadas,
+  com 3 a 4 frases (o fato, o contexto e por que importa hoje).
 {extra}
 
 Responda SOMENTE com JSON neste formato:
 {{
-  "abertura": "1 frase neutra resumindo o principal assunto do dia",
-  "varejo":   [{{"ids": [1, 4], "titulo": "...", "topicos": ["...", "..."]}}],
-  "economia": [{{"ids": [7],    "titulo": "...", "topicos": ["...", "..."]}}],
-  "mundo":    [{{"ids": [12],   "titulo": "...", "topicos": ["...", "..."]}}],
-  "curiosidade": {{"titulo": "...", "texto": "2 ou 3 frases"}}
+  "abertura": "1 a 2 frases neutras resumindo os principais assuntos do dia",
+  "varejo":   [{{"ids": [1, 4], "titulo": "...", "resumo": "...", "topicos": ["...", "...", "..."], "impacto": "..."}}],
+  "economia": [{{"ids": [7],    "titulo": "...", "resumo": "...", "topicos": ["...", "...", "..."], "impacto": "..."}}],
+  "mundo":    [{{"ids": [12],   "titulo": "...", "resumo": "...", "topicos": ["...", "...", "..."], "impacto": ""}}],
+  "curiosidade": {{"titulo": "...", "texto": "3 a 4 frases"}}
 }}
 Limites: até {mv} itens em varejo, {me} em economia, {mm} em mundo. Use apenas ids da lista."""
 
@@ -217,7 +223,7 @@ def chama_gemini(prompt: str) -> dict | None:
             "generationConfig": {"temperature": 0.2},
         }),
         ("sem busca", {
-            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "contents": [{"role": "user", "parts": [{"text": prompt + SEM_BUSCA}]}],
             "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"},
         }),
     ]
@@ -256,6 +262,11 @@ CHECAGEM DE FATOS (obrigatória):
 - Se não conseguir confirmar uma notícia, descarte-a.
 - Confirme também a curiosidade.
 Responda apenas com o JSON, sem texto antes ou depois."""
+
+SEM_BUSCA = """
+
+ATENÇÃO: hoje você está sem acesso à pesquisa. Use apenas o que está nas manchetes fornecidas.
+Se não houver informação suficiente, escreva um resumo curto e menos tópicos — nunca complete de memória."""
 
 
 def redige(itens: list[dict], hist: dict) -> dict | None:
@@ -314,14 +325,20 @@ def monta_blocos(boletim: dict, itens: list[dict]) -> list[str]:
             ids = [i for i in n.get("ids", []) if isinstance(i, int) and 1 <= i <= len(itens)]
             fontes = sorted({itens[i - 1]["fonte"] for i in ids if itens[i - 1]["fonte"]})
             txt = f"🟠 *{n['titulo'].strip()}*"
-            for t in n.get("topicos", []):
-                txt += f"\n• {t.strip()}"
+            if (n.get("resumo") or "").strip():
+                txt += f"\n{n['resumo'].strip()}"
+            topicos = [t.strip() for t in n.get("topicos", []) if t and t.strip()]
+            if topicos:
+                txt += "\n" + "".join(f"\n• {t}" for t in topicos)
+            impacto = re.sub(r"^para o varejo:\s*", "", (n.get("impacto") or "").strip(), flags=re.I)
+            if impacto:
+                txt += f"\n\n📌 *Para o varejo:* {impacto}"
             if fontes:
-                txt += f"\n_Fonte: {', '.join(fontes[:2])}_"
+                txt += f"\n\n_Fonte: {', '.join(fontes[:2])}_"
             if INCLUIR_LINKS and ids:
-                curto = encurta(itens[ids[0] - 1]["link"])
-                if curto:
-                    txt += f"\n🔗 {curto}"
+                link = link_original(itens[ids[0] - 1]["link"])
+                if link:
+                    txt += f"\n🔗 {link}"
             if cabecalho:
                 txt, cabecalho = f"{cabecalho}\n\n{txt}", ""
             blocos.append(txt)
@@ -334,24 +351,31 @@ def monta_blocos(boletim: dict, itens: list[dict]) -> list[str]:
     return blocos
 
 
-def encurta(url: str) -> str | None:
-    """Encurta o link (os do Google News têm 150+ caracteres)."""
+RASTREIO = re.compile(r"^(utm_|fbclid|gclid|ocid|cmpid|ref$|xtor|at_|origin$|source$)", re.I)
+
+
+def limpa_url(url: str) -> str:
+    """Tira parâmetros de rastreamento (utm_ etc.) e o que vem depois de #."""
+    base, _, query = url.split("#")[0].partition("?")
+    params = [p for p in query.split("&") if p and not RASTREIO.match(p.split("=")[0])]
+    return base + ("?" + "&".join(params) if params else "")
+
+
+def link_original(url: str) -> str | None:
+    """Troca o link do Google News pelo link do próprio portal da notícia."""
     if not url:
         return None
-    servicos = [
-        ("https://tinyurl.com/api-create.php", {"url": url}),
-        ("https://is.gd/create.php", {"format": "simple", "url": url}),
-    ]
-    for endpoint, params in servicos:
-        try:
-            r = requests.get(endpoint, params=params, timeout=15)
-            curto = r.text.strip()
-            if r.status_code == 200 and curto.startswith("http") and len(curto) < 60:
-                return curto.replace("https://", "")
-        except Exception:
-            pass
-    print("  ! não consegui encurtar um link — notícia vai sem link")
-    return None
+    if "news.google.com" not in url:
+        return limpa_url(url)
+    try:
+        from googlenewsdecoder import gnewsdecoder
+        r = gnewsdecoder(url, interval=1)
+        if (r.get("success") or r.get("status")) and r.get("decoded_url", "").startswith("http"):
+            return limpa_url(r["decoded_url"])
+        print(f"  ! link original não encontrado: {str(r.get('message', ''))[:80]}")
+    except Exception as e:
+        print(f"  ! erro ao buscar link original: {e}")
+    return None  # sem link é melhor que um link gigante do Google
 
 
 def quebra_bloco(bloco: str, limite: int) -> list[str]:
