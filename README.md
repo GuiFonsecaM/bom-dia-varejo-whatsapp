@@ -7,7 +7,7 @@ Todo dia às ~6h40 (Brasília) um robô no GitHub busca as notícias do dia, a I
 - 📊 Economia que mexe com o varejo (inflação, juros, consumo, dólar)
 - 🌎 Mundo
 - 💡 Curiosidade do varejo
-- 🔗 Link curto de cada notícia
+- 🔗 Link original de cada notícia (direto do portal, sem encurtador)
 - Domingo: resumo da semana
 - Nunca repete notícia nem curiosidade (fica registrado em `historico.json`)
 
