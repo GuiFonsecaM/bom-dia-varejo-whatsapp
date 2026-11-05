@@ -6,16 +6,24 @@ Fluxo:
  1. Busca as manchetes do dia no Google News (RSS, grátis)
  2. Tira tudo que já foi enviado antes (historico.json)
  3. A IA gratuita do Gemini escolhe e redige no estilo Bom dia varejo
- 4. Envia para o seu WhatsApp pelo CallMeBot (grátis, uso pessoal)
+ 4. Envia pelo Green-API (mensagem única, número e/ou grupo);
+    se falhar, usa o CallMeBot como reserva
 
 Variáveis de ambiente (GitHub Secrets):
-  GEMINI_API_KEY     chave grátis do Google AI Studio
-  WHATSAPP_PHONE     seu número no formato internacional, ex.: +5531999999999
-  CALLMEBOT_APIKEY   chave recebida do CallMeBot
+  GEMINI_API_KEY      chave grátis do Google AI Studio
+  GREEN_API_URL       apiUrl da instância (console do Green-API)
+  GREEN_ID_INSTANCE   idInstance
+  GREEN_API_TOKEN     apiTokenInstance
+  WHATSAPP_DESTINOS   números e/ou IDs de grupo separados por vírgula
+                      ex.: 553199999999, 120363000000000000@g.us
+Reserva (CallMeBot):
+  WHATSAPP_PHONE      seu número, ex.: +553199999999
+  CALLMEBOT_APIKEY    chave recebida do CallMeBot
 Opcionais:
-  GEMINI_MODEL       força um modelo específico do Gemini
-  INCLUIR_LINKS=1    adiciona o link de cada notícia
-  DRY_RUN=1          só mostra a mensagem no log, não envia
+  GEMINI_MODEL        força um modelo específico do Gemini
+  INCLUIR_LINKS=0     tira os links das notícias
+  DRY_RUN=1           só mostra a mensagem no log, não envia
+  LISTAR_GRUPOS=1     só lista os grupos e seus IDs
 """
 
 import datetime as dt
@@ -462,7 +470,125 @@ def envia_whatsapp(texto: str) -> bool:
 
 
 # --------------------------------------------------------------------------
+# 4b. Envio pelo Green-API (mensagem única, direto em grupos)
+# --------------------------------------------------------------------------
+GREEN_URL = (os.getenv("GREEN_API_URL") or "https://api.green-api.com").strip().rstrip("/")
+GREEN_ID = re.sub(r"\D", "", os.getenv("GREEN_ID_INSTANCE", ""))
+GREEN_TOKEN = os.getenv("GREEN_API_TOKEN", "").strip()
+USA_GREEN = bool(GREEN_ID and GREEN_TOKEN)
+LIMITE_GREEN = 15000  # o Green-API aceita até 20 mil caracteres por mensagem
+
+
+def green(metodo: str, corpo: dict | None = None) -> requests.Response:
+    url = f"{GREEN_URL}/waInstance{GREEN_ID}/{metodo}/{GREEN_TOKEN}"
+    if corpo is None:
+        return requests.get(url, timeout=60)
+    return requests.post(url, json=corpo, timeout=60)
+
+
+def mascara_chat(chat_id: str) -> str:
+    if chat_id.endswith("@g.us"):
+        return f"grupo …{chat_id.split('@')[0][-6:]}"
+    return mascara("+" + chat_id.split("@")[0])
+
+
+def resolve_numero_green(numero: str) -> str:
+    """Descobre o formato do número no WhatsApp (com ou sem o 9 extra)."""
+    for variante in variantes_numero(limpa_numero(numero)):
+        digitos = variante.lstrip("+")
+        try:
+            r = green("checkWhatsapp", {"phoneNumber": int(digitos)})
+            if r.status_code == 200 and r.json().get("existsWhatsapp"):
+                return f"{digitos}@c.us"
+        except Exception:
+            break  # cota da checagem esgotada ou instabilidade: usa como está
+    return f"{limpa_numero(numero).lstrip('+')}@c.us"
+
+
+def destinos_green() -> list[str]:
+    """WHATSAPP_DESTINOS: números e/ou IDs de grupo separados por vírgula."""
+    bruto = os.getenv("WHATSAPP_DESTINOS") or os.getenv("WHATSAPP_PHONE", "")
+    destinos = []
+    for d in re.split(r"[,;\n]+", bruto):
+        d = d.strip()
+        if not d:
+            continue
+        destinos.append(d if "@" in d else resolve_numero_green(d))
+    return destinos
+
+
+def estado_green() -> str:
+    try:
+        return green("getStateInstance").json().get("stateInstance", "?")
+    except Exception as e:
+        return f"erro: {e}"
+
+
+def envia_green(chat_id: str, texto: str) -> bool:
+    corpo = {"chatId": chat_id, "message": texto, "linkPreview": False}
+    for tentativa in range(3):
+        try:
+            r = green("sendMessage", corpo)
+            if r.status_code == 200 and "idMessage" in r.text:
+                print(f"  ✓ Green-API para {mascara_chat(chat_id)}")
+                return True
+            print(f"  ! Green-API ({r.status_code}) para {mascara_chat(chat_id)}: {r.text[:200]}")
+            if r.status_code in (400, 401, 403, 466):
+                return False  # erro de configuração ou cota: repetir não adianta
+        except Exception as e:
+            print(f"  ! erro no Green-API: {e}")
+        time.sleep(15 * (tentativa + 1))
+    return False
+
+
+def lista_grupos() -> int:
+    """Mostra os grupos do WhatsApp conectado e o ID de cada um."""
+    print(f"Estado da conexão: {estado_green()}")
+    try:
+        contatos = green("getContacts").json()
+    except Exception as e:
+        print(f"  ! não consegui listar: {e}")
+        return 1
+    grupos = [c for c in contatos if str(c.get("id", "")).endswith("@g.us")]
+    if not grupos:
+        print("  Nenhum grupo encontrado. Confira se o número conectado já está no grupo.")
+    for g in grupos:
+        print(f"  {g.get('name') or g.get('contactName') or '(sem nome)'}  →  {g['id']}")
+    return 0
+
+
+def envia_boletim(blocos: list[str]) -> bool:
+    """Green-API se configurado; se falhar (ou não houver), CallMeBot."""
+    if USA_GREEN:
+        print(f"  Green-API: conexão {estado_green()}")
+        msgs = agrupa(blocos, LIMITE_GREEN)
+        ok_algum = False
+        for destino in destinos_green():
+            ok = all([envia_green(destino, m) for m in msgs])
+            ok_algum = ok_algum or ok
+            time.sleep(3)
+        if ok_algum:
+            return True
+        print("  ! Green-API falhou — tentando pelo CallMeBot")
+
+    if os.getenv("CALLMEBOT_APIKEY", "").strip():
+        msgs = agrupa(blocos, LIMITE_MSG)
+        enviados = 0
+        for m in msgs:
+            enviados += envia_whatsapp(m)
+            time.sleep(8)  # CallMeBot pede intervalo entre mensagens
+        print(f"  CallMeBot: {enviados}/{len(msgs)} mensagens enviadas")
+        return enviados > 0
+    if not USA_GREEN:
+        print("  ! nenhum envio configurado (Green-API ou CallMeBot)")
+    return False
+
+
+# --------------------------------------------------------------------------
 def main() -> int:
+    if os.getenv("LISTAR_GRUPOS", "0") == "1":
+        return lista_grupos()
+
     print(f"Bom dia varejo — {AGORA:%d/%m/%Y %H:%M} {'(resumo da semana)' if DOMINGO else ''}")
     hist = carrega_historico()
 
@@ -473,20 +599,14 @@ def main() -> int:
         return 0
 
     boletim = redige(itens, hist) or modo_simples(itens)
-    msgs = agrupa(monta_blocos(boletim, itens))
+    blocos = monta_blocos(boletim, itens)
 
-    print("\n" + "\n\n——— (próxima mensagem) ———\n\n".join(msgs) + "\n")
+    print("\n" + "\n\n".join(blocos) + "\n")
     if DRY_RUN:
         print("  DRY_RUN=1 — não enviado, histórico não alterado")
         return 0
 
-    enviados = 0
-    for m in msgs:
-        if envia_whatsapp(m):
-            enviados += 1
-        time.sleep(8)  # CallMeBot pede intervalo entre mensagens
-    print(f"  {enviados}/{len(msgs)} mensagens enviadas")
-    if enviados == 0:
+    if not envia_boletim(blocos):
         return 1
 
     hoje = AGORA.date().isoformat()
