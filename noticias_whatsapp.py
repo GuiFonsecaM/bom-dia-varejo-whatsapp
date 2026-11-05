@@ -43,7 +43,8 @@ DOMINGO = AGORA.weekday() == 6
 
 JANELA_HORAS = 7 * 24 if DOMINGO else 30   # domingo = resumo da semana
 MAX_POR_SECAO = {"varejo": 6, "economia": 4, "mundo": 3}
-INCLUIR_LINKS = os.getenv("INCLUIR_LINKS", "0") == "1"
+INCLUIR_LINKS = (os.getenv("INCLUIR_LINKS") or "1").strip() != "0"   # links ligados por padrão
+LIMITE_MSG = 650  # o CallMeBot corta mensagens a partir de ~750 caracteres
 DRY_RUN = os.getenv("DRY_RUN", "0") == "1"
 
 MODELOS_GEMINI = [m for m in [
@@ -300,7 +301,7 @@ def monta_blocos(boletim: dict, itens: list[dict]) -> list[str]:
         noticias = boletim.get(chave) or []
         if not noticias:
             continue
-        blocos.append(titulo_secao)
+        cabecalho = titulo_secao  # vai grudado na 1ª notícia, para não ficar sozinho
         for n in noticias:
             ids = [i for i in n.get("ids", []) if isinstance(i, int) and 1 <= i <= len(itens)]
             fontes = sorted({itens[i - 1]["fonte"] for i in ids if itens[i - 1]["fonte"]})
@@ -310,7 +311,11 @@ def monta_blocos(boletim: dict, itens: list[dict]) -> list[str]:
             if fontes:
                 txt += f"\n_Fonte: {', '.join(fontes[:2])}_"
             if INCLUIR_LINKS and ids:
-                txt += f"\n{itens[ids[0] - 1]['link']}"
+                curto = encurta(itens[ids[0] - 1]["link"])
+                if curto:
+                    txt += f"\n🔗 {curto}"
+            if cabecalho:
+                txt, cabecalho = f"{cabecalho}\n\n{txt}", ""
             blocos.append(txt)
 
     cur = boletim.get("curiosidade")
@@ -321,15 +326,60 @@ def monta_blocos(boletim: dict, itens: list[dict]) -> list[str]:
     return blocos
 
 
-def agrupa(blocos: list[str], limite: int = 1400) -> list[str]:
-    """Junta blocos em mensagens que caibam no envio do CallMeBot."""
-    msgs, atual = [], ""
-    for b in blocos:
-        if atual and len(atual) + len(b) + 2 > limite:
-            msgs.append(atual)
-            atual = b
+def encurta(url: str) -> str | None:
+    """Encurta o link (os do Google News têm 150+ caracteres)."""
+    if not url:
+        return None
+    servicos = [
+        ("https://tinyurl.com/api-create.php", {"url": url}),
+        ("https://is.gd/create.php", {"format": "simple", "url": url}),
+    ]
+    for endpoint, params in servicos:
+        try:
+            r = requests.get(endpoint, params=params, timeout=15)
+            curto = r.text.strip()
+            if r.status_code == 200 and curto.startswith("http") and len(curto) < 60:
+                return curto.replace("https://", "")
+        except Exception:
+            pass
+    print("  ! não consegui encurtar um link — notícia vai sem link")
+    return None
+
+
+def quebra_bloco(bloco: str, limite: int) -> list[str]:
+    """Se um bloco sozinho passar do limite, divide por linhas."""
+    if len(bloco) <= limite:
+        return [bloco]
+    partes, atual = [], ""
+    for linha in bloco.split("\n"):
+        while len(linha) > limite:          # linha gigante: corta por palavra
+            corte = linha.rfind(" ", 0, limite)
+            corte = corte if corte > 0 else limite
+            if atual:
+                partes.append(atual)
+                atual = ""
+            partes.append(linha[:corte])
+            linha = linha[corte:].lstrip()
+        if atual and len(atual) + len(linha) + 1 > limite:
+            partes.append(atual)
+            atual = linha
         else:
-            atual = f"{atual}\n\n{b}" if atual else b
+            atual = f"{atual}\n{linha}" if atual else linha
+    if atual:
+        partes.append(atual)
+    return partes
+
+
+def agrupa(blocos: list[str], limite: int = LIMITE_MSG) -> list[str]:
+    """Junta blocos em mensagens que caibam no envio do CallMeBot, sem cortar notícia."""
+    msgs, atual = [], ""
+    for bloco in blocos:
+        for b in quebra_bloco(bloco, limite):
+            if atual and len(atual) + len(b) + 2 > limite:
+                msgs.append(atual)
+                atual = b
+            else:
+                atual = f"{atual}\n\n{b}" if atual else b
     if atual:
         msgs.append(atual)
     return msgs
@@ -375,7 +425,7 @@ def _tenta_envio(phone: str, key: str, texto: str) -> tuple[bool, bool]:
             # A página ecoa o texto enviado; o status do envio vem depois dele
             final = resposta.split("Text to send:")[-1][-300:].lower()
             if 200 <= r.status_code < 300 and not any(e in final for e in ERROS_CALLMEBOT):
-                print(f"  ✓ CallMeBot ({r.status_code}) para {mascara(phone)}")
+                print(f"  ✓ CallMeBot ({r.status_code}) para {mascara(phone)}: {final[-110:].strip()}")
                 return True, False
             print(f"  ! CallMeBot ({r.status_code}) para {mascara(phone)}: {final[-110:].strip()}")
             if 200 <= r.status_code < 300:
@@ -388,10 +438,13 @@ def _tenta_envio(phone: str, key: str, texto: str) -> tuple[bool, bool]:
 
 def envia_whatsapp(texto: str) -> bool:
     global _NUMERO_OK
-    phone = limpa_numero(os.getenv("WHATSAPP_PHONE", ""))
-    key = re.sub(r"\D", "", os.getenv("CALLMEBOT_APIKEY", ""))
+    bruto_phone = os.getenv("WHATSAPP_PHONE", "")
+    bruto_key = os.getenv("CALLMEBOT_APIKEY", "")
+    phone = limpa_numero(bruto_phone)
+    key = re.sub(r"[^A-Za-z0-9]", "", bruto_key)
     if len(phone) < 12 or not key:
-        print("  ! WHATSAPP_PHONE / CALLMEBOT_APIKEY ausentes ou vazios")
+        print(f"  ! WHATSAPP_PHONE: {'VAZIO' if not bruto_phone.strip() else f'{len(phone) - 1} dígitos'}"
+              f" | CALLMEBOT_APIKEY: {'VAZIO' if not bruto_key.strip() else f'{len(key)} caracteres'}")
         return False
 
     for numero in ([_NUMERO_OK] if _NUMERO_OK else variantes_numero(phone)):
