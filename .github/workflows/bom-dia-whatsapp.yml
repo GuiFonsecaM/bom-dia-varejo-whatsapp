@@ -1,9 +1,6 @@
 name: Bom dia varejo no WhatsApp
 
 on:
-  schedule:
-    # 09:40 UTC = 06:40 em Brasília (o GitHub costuma atrasar alguns minutos)
-    - cron: "40 9 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
