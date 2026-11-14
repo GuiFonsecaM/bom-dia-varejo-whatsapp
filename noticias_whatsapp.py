@@ -50,7 +50,7 @@ AGORA = dt.datetime.now(FUSO)
 DOMINGO = AGORA.weekday() == 6
 
 JANELA_HORAS = 7 * 24 if DOMINGO else 30   # domingo = resumo da semana
-MAX_POR_SECAO = {"varejo": 6, "economia": 4, "mundo": 3}
+MAX_POR_SECAO = {"varejo": 6, "economia": 4, "mundo": 4}   # mundo: até 2 podem ser de tecnologia
 INCLUIR_LINKS = (os.getenv("INCLUIR_LINKS") or "1").strip() != "0"   # links ligados por padrão
 LIMITE_MSG = 650  # o CallMeBot corta mensagens a partir de ~750 caracteres
 DRY_RUN = os.getenv("DRY_RUN", "0") == "1"
@@ -84,6 +84,37 @@ BUSCAS = {
     "mundo": [],
 }
 FEED_MUNDO = "https://news.google.com/rss/headlines/section/topic/WORLD?hl=pt-BR&gl=BR&ceid=BR:pt-419"
+
+# Tecnologia entra na seção "mundo", mas só quando é muito relevante:
+# precisa citar uma grande empresa/pessoa do setor E um acontecimento de peso (troca de CEO, aquisição, multa...).
+FEED_TECNOLOGIA = "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=pt-BR&gl=BR&ceid=BR:pt-419"
+BUSCAS_TECNOLOGIA = [
+    '(Nvidia OR Apple OR Microsoft OR Google OR Meta OR Amazon OR OpenAI OR Tesla) CEO',
+    '(Nvidia OR Apple OR Microsoft OR Google OR Meta OR Amazon OR OpenAI OR Tesla OR Samsung) aquisição OR demissões OR multa OR antitruste',
+    'big techs regulação OR tarifa OR chips OR "valor de mercado"',
+]
+TEC_EMPRESAS = [
+    "nvidia", "apple", "microsoft", "google", "alphabet", "meta", "facebook", "instagram", "whatsapp", "amazon", "aws",
+    "openai", "chatgpt", "anthropic", "tesla", "spacex", "starlink", "xai", "samsung", "tsmc", "intel", "amd", "qualcomm",
+    "broadcom", "asml", "ibm", "oracle", "netflix", "uber", "byd", "huawei", "xiaomi", "tiktok", "bytedance", "alibaba",
+    "tencent", "deepseek", "mercado livre", "shopee", "temu", "shein", "jensen huang", "elon musk", "tim cook",
+    "sam altman", "mark zuckerberg", "sundar pichai", "satya nadella", "jeff bezos", "andy jassy", "dario amodei",
+]
+TEC_EVENTOS = [
+    "ceo", "presidente executivo", "presidenteexecutivo", "renuncia", "renunciou", "deixa o cargo", "deixara o cargo",
+    "deixa a empresa", "aposentadoria", "sucessor", "sucessao", "demitido", "demissao", "demissoes", "layoff",
+    "corte de vagas", "aquisicao", "adquire", "adquiriu", "compra da", "fusao", "ipo", "abertura de capital",
+    "valor de mercado", "trilhao", "trilhoes", "recorde", "falencia", "antitruste", "monopolio", "multa", "multada",
+    "condenada", "regulacao", "regulamentacao", "proibe", "proibicao", "banimento", "banida", "sancoes", "tarifa",
+    "tarifas", "exportacao de chips", "ataque hacker", "ataque cibernetico", "vazamento de dados", "apagao",
+    "fora do ar", "pane global", "investigacao",
+]
+
+
+def tecnologia_relevante(texto: str) -> bool:
+    t = f" {normaliza(texto)} "
+    tem = lambda termos: any(f" {normaliza(x)} " in t for x in termos)
+    return tem(TEC_EMPRESAS) and tem(TEC_EVENTOS)
 
 
 # --------------------------------------------------------------------------
@@ -128,10 +159,12 @@ def coleta() -> list[dict]:
     limite = AGORA - dt.timedelta(hours=JANELA_HORAS)
     itens, vistos = [], set()
 
-    fontes = [(sec, GN.format(q=quote_plus(f"{q} {JANELA_GN}"))) for sec, qs in BUSCAS.items() for q in qs]
-    fontes.append(("mundo", FEED_MUNDO))
+    fontes = [(sec, GN.format(q=quote_plus(f"{q} {JANELA_GN}")), None) for sec, qs in BUSCAS.items() for q in qs]
+    fontes.append(("mundo", FEED_MUNDO, None))
+    fontes.append(("mundo", FEED_TECNOLOGIA, "tecnologia"))
+    fontes += [("mundo", GN.format(q=quote_plus(f"{q} {JANELA_GN}")), "tecnologia") for q in BUSCAS_TECNOLOGIA]
 
-    for secao, url in fontes:
+    for secao, url, tema in fontes:
         for e in le_feed(url)[:25]:
             titulo_bruto = html.unescape(e.get("title", "")).strip()
             fonte = (e.get("source") or {}).get("title", "")
@@ -147,16 +180,21 @@ def coleta() -> list[dict]:
                 if quando < limite:
                     continue
 
+            resumo = re.sub(r"<[^>]+>", " ", html.unescape(e.get("summary", "")))[:300]
+            if tema == "tecnologia" and not tecnologia_relevante(f"{titulo} {resumo}"):
+                continue                     # tecnologia só entra se for muito relevante
+
             chave = normaliza(titulo)[:80]
             if not chave or chave in vistos:
                 continue
             vistos.add(chave)
             itens.append({
                 "secao": secao,
+                "tema": tema,
                 "titulo": titulo.strip(),
                 "fonte": fonte.strip(),
                 "link": e.get("link", ""),
-                "resumo": re.sub(r"<[^>]+>", " ", html.unescape(e.get("summary", "")))[:300],
+                "resumo": resumo,
             })
     return itens
 
@@ -188,6 +226,11 @@ Regras de estilo (obrigatórias):
 - Ignore notícias que repetem assuntos da lista "JÁ ENVIADOS".
 - Priorize: concorrentes (Atacadão, Assaí, Carrefour, Grupo Mateus, Pão de Açúcar, Supermercados BH, DMA), Mart Minas, Minas Gerais, preços de alimentos, juros, consumo e comportamento do consumidor.
 - Na seção "mundo", escolha os fatos internacionais mais relevantes do dia (não precisam ser de varejo).
+- A seção "mundo" também pode ter TECNOLOGIA (manchetes marcadas "mundo · tecnologia"), no máximo 2 itens e só se forem
+  muito relevantes: troca ou saída de CEO de grande empresa (ex.: Nvidia, Apple, Microsoft, Google, Meta, Amazon, OpenAI,
+  Tesla), grandes aquisições ou fusões, demissões em massa, multas e decisões antitruste, regulação, tarifas e restrições
+  a chips, valor de mercado recorde, IPOs gigantes, ataques hackers ou panes globais. Ignore lançamento de produto,
+  dicas, avaliações e rumores.
 - Crie uma curiosidade verdadeira e verificável sobre varejo/atacarejo/supermercados, diferente das já usadas,
   com 3 a 4 frases (o fato, o contexto e por que importa hoje).
 {extra}
@@ -271,7 +314,7 @@ Se não houver informação suficiente, escreva um resumo curto e menos tópicos
 
 def redige(itens: list[dict], hist: dict) -> dict | None:
     lista = "\n".join(
-        f'[{n}] ({i["secao"]}) {i["titulo"]} — {i["fonte"]} | {i["resumo"][:180]}'
+        f'[{n}] ({i["secao"]}{" · " + i["tema"] if i.get("tema") else ""}) {i["titulo"]} — {i["fonte"]} | {i["resumo"][:180]}'
         for n, i in enumerate(itens, 1)
     )
     ja = "\n".join(f"- {n['titulo']}" for n in hist["noticias"][-80:]) or "(nenhum)"
