@@ -111,6 +111,9 @@ TEC_EVENTOS = [
 ]
 
 
+REDES_SOCIAIS = {"instagram", "tiktok", "youtube", "facebook", "x", "twitter", "threads", "kwai", "linkedin"}
+
+
 def tecnologia_relevante(texto: str) -> bool:
     t = f" {normaliza(texto)} "
     tem = lambda termos: any(f" {normaliza(x)} " in t for x in termos)
@@ -174,6 +177,9 @@ def coleta() -> list[dict]:
             elif " - " in titulo:
                 titulo, fonte = titulo.rsplit(" - ", 1)
 
+            if normaliza(fonte) in REDES_SOCIAIS:
+                continue                     # post de rede social não é fonte jornalística
+
             pub = e.get("published_parsed")
             if pub:
                 quando = dt.datetime(*pub[:6], tzinfo=dt.timezone.utc)
@@ -222,8 +228,9 @@ Regras de estilo (obrigatórias):
 - Os tópicos são texto puro, sem numeração (nada de "1.", "2)") e sem marcador no início — o marcador é colocado depois.
 - Nunca use a expressão "leitura editorial".
 - Não invente fatos nem números: use só o que está nas manchetes fornecidas ou o que foi confirmado em pesquisa.
-- Nunca atribua motivos, acusações, escândalos ou detalhes da vida pessoal a pessoas reais se isso não estiver
-  explícito no texto fornecido ou confirmado em fonte oficial. Se o motivo não foi divulgado, escreva que não foi divulgado.
+- Motivos, acusações, escândalos ou detalhes da vida pessoal de pessoas reais só entram se estiverem nas manchetes
+  de veículos jornalísticos fornecidas (ou confirmados na pesquisa), e sempre atribuídos à fonte
+  (ex.: "segundo reportagens da imprensa americana"). Se a empresa não divulgou oficialmente o motivo, diga isso também.
 - Em trocas de comando de empresas, prefira os fatos oficiais: quem saiu, quando e quem assume (mesmo que interinamente).
 - Junte em um item só notícias diferentes sobre o mesmo fato.
 - Ignore notícias que repetem assuntos da lista "JÁ ENVIADOS".
