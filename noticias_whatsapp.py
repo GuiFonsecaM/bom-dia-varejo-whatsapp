@@ -222,6 +222,9 @@ Regras de estilo (obrigatórias):
 - Os tópicos são texto puro, sem numeração (nada de "1.", "2)") e sem marcador no início — o marcador é colocado depois.
 - Nunca use a expressão "leitura editorial".
 - Não invente fatos nem números: use só o que está nas manchetes fornecidas ou o que foi confirmado em pesquisa.
+- Nunca atribua motivos, acusações, escândalos ou detalhes da vida pessoal a pessoas reais se isso não estiver
+  explícito no texto fornecido ou confirmado em fonte oficial. Se o motivo não foi divulgado, escreva que não foi divulgado.
+- Em trocas de comando de empresas, prefira os fatos oficiais: quem saiu, quando e quem assume (mesmo que interinamente).
 - Junte em um item só notícias diferentes sobre o mesmo fato.
 - Ignore notícias que repetem assuntos da lista "JÁ ENVIADOS".
 - Priorize: concorrentes (Atacadão, Assaí, Carrefour, Grupo Mateus, Pão de Açúcar, Supermercados BH, DMA), Mart Minas, Minas Gerais, preços de alimentos, juros, consumo e comportamento do consumidor.
@@ -283,6 +286,7 @@ def chama_gemini(prompt: str) -> dict | None:
                         print(f"  ! {modelo} ({nome_modo}) indisponível: {r.status_code}")
                         break
                     if r.status_code in (429, 500, 503):
+                        print(f"  ! {modelo} ({nome_modo}) HTTP {r.status_code}: {r.text[:160]}")
                         time.sleep(15 * (tentativa + 1))
                         continue
                     r.raise_for_status()
