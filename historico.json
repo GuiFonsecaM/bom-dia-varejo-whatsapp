@@ -1,256 +1,6 @@
 {
   "noticias": [
     {
-      "titulo": "Nutrien deve fechar operações de varejo em mais 3 Estados do Brasil Por Reuters",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQRHZZeFR4WHZZSC13Z3RSRm9USHJzMEx1SGJWWnhwV3RFaWNJVTJ4V0VmUkRJTGx6XzJmX3B0d1JvWmVXYXNFa3h6YkVHSFJoT29FX196VW5ZaXdmYXNseThvMGNFSjlKOFJtS3N6QXRjb2hYczVkZ3JyQ0Z3MUlhNm5zZ0JfbEo1WU4zYXl0ekVZY2VUM21CQ1pxUFFjOW0tb0ctV09zaS0xM0xDRXdLdUhmdFpINVdHd0gxUzFuVGY?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Nutrien vai fechar mais três operações de varejo no Brasil",
-      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1TRnk3bVk1cmxKUmhBUXZiaWM0el9JSUk3WTRsMERlNG1wRzZEVURDVHlyTXg4RHZLN2Y4Q3NYYUJFd2ZpTzAyVjBFbkRCMGl0SlphT1BNelRONVI2STVoME56ZjM1TzFZbXVQR0RMLXRyS1diVDBN?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Nutrien encerra operações de varejo em mais três estados brasileiros",
-      "link": "",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Assaí abre cerca de 300 vagas de emprego para nova loja em Guarulhos",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOTnBranNZNU5DZk1uVGtiTGt2Q2NVLXBwM2NZR1gwNVVYOXk5SEdzX2dVOEVIQ1c4REQ1X2tCYjkzVDhNWXhqSUpEOUcwd1FMSlViREpTZWxOVUo2a2ZPRGk3NWZqMnhSRk1ldXV0YWtjT25aZ0pJTlpQT1dNcUllS3NDTEJwdnEzS2FLYy1rd2NFNEhEZWN5SndjYVUyZw?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Assaí tem 300 vagas de emprego abertas, para sua quinta loja em Guarulhos",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNN0ZzajhWcURqWVpVNEFCLW8yX0NIV3QtLURUTjFuaEF3ZnFkV2V6ak81TnpkekVyS3I1bnJ4SDdtdG1ONGhqcG44TFRCNTc1eUgyMzlzM29EOEVHMzZhYlZ0RTZndVpxaHdCX3JzLVpxSEtLekNDWEFYNGxHamFmenVibWtlUkY4SWdiMmU3Qm9Zd0dIQkRoUnFlOWx4TVNzTDc1STJidWlmLU0zR2J6WVlB?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Assaí Atacadista abre 300 vagas de emprego para nova loja em Guarulhos",
-      "link": "",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Banco Central surpreende e mantém juros básicos em 13,75% ao ano",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNV0FpY3VSWGM5cGFQUEN5Zmh4YmpzSUdMM09fdHlmdEtRRGhNTVRnNkpQX2FKTjVqRVh6WDVBbVpxZkJUT3dBYzJNLU9qUERxN2hfM1VnNkZLTmlWaHYwOVNrSVFsSmZBQXkzS1ZDcEVERHZvUUVsdlhWX0NScDkwU0xuNVg3ZmZDbndvSzhISzdWY3VrVGxqWk9kZnZQRXVIZDFwMW9RdGJNUjVZR3c?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Copom mantém Selic em 13,75% e interrompe ciclo de cortes nos juros",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQbkdJdXFiOFBfMzYxZDgzU19nTmtRUElWYWtWQ0xvNlcxZGpMcktVeFlPUTljVEI5SGE0MDllQ3B1cUx2YWQ0ZmpDRGR0and2dXNGZXUtVm9CeGlSRXdqQkU1QS0wRm9HUU9mWFJ2azZvcGc5cWZMM0tnVWg2TXp0OXlyTTBEdk1wOHZSdVRZYWJHbzN3ZVdhUzVTbHN5TlJoUHc2VkdB?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "CDL/BH e Fiemg criticam manutenção da Selic em 13,75%",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPWlp4VXg1SUxhYVdYY20xOUdKU3JESnRBQ2dCRU1xYWNmb05VS01ycDBUQmJOcTdpNFlWbjJ2c2dUdVNLbWsyTmpsYndaTjdkX1hRTnhxVTNSMHJBdFZkNUt0ZlhRZ05KdDZObEszNENRSDNpYmVlczREZlFSRGM1cXAzM0E2OTItVUE?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Copom interrompe ciclo de cortes e mantém Selic em 13,75% ao ano; mercado acompanha sinais sobre inflação e contas públicas",
-      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxORFZXNzdscTZleXI0N252c3pWbTdZSmhwRlVYbXRESlYtcGxYelgyRWd4WGlQZ1VEbU12aE0wOGROUC13blZqSFVpTGFHMWxfRUxweUVNN1V4aDJFYWFYcmUtelZLN25pTllISWl0WWlrYUpnNUFHYUc0N1BVQ3hlSzBPdmZoNjJNdEdtVjJHYUM0Ni1PTWJja1dXaC1NV1JtRzNsMlJ1Ti1IeGE2V18zUDhFcldzRXZveHIzWklVUHZDNVdLdUxZVzRKN042YVpYQU1RNHV5Y3F3RjN4TXpUbmhB?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Banco Central mantém taxa Selic em 13,75% e interrompe ciclo de cortes",
-      "link": "",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Por que o preço do tomate disparou de novo? Entenda motivos da alta",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNdkVWUThyOVVpX0VWUjRsWFhRb09zYkhwX3lsV2tpOXFETHZtSmNaaDMtWS1HMzBzdjRSS2ItYkFOYXBjNS00TWhORU9GSWpoeWlHSTcyeWQzb0JscmRxazZBdkpLSjZBYkJrdWxXdm9vUmFwanluY3hTUE5tdk91b2RUcEcxN2tHa0VfeDRPU19JbzBqdXExazVlUGxSc0tnaC1fdXpSSHBxWUNwc1JLSXJON2JTNHFUYmVRR1QwM0ZNMVBQ0gHTAUFVX3lxTE5fSGg4WkJMYy0wZXFyYmNDWFJlSmtMR3hCTGZXQURYZ1NCb3VFN2hhM09vWFZUUFgzaWhFM2hYWXdTaXk5cEduTGxEVUQ2ZFBWNlBYcndZU2F0SS1HNkhud1dlQU8tbEYwVUpPX09WRGlWeUU5NGhvN0k0d01OU2dWMVRwa0x3c19YSzNlY0p4eXFSTW1zLV90dGlKNzhqRW9iRFNNSjVyY05JeHRqMURhTmtqM2gxY1I2bkpVZ2FnYU1sZmptSV9TSzZOZ1Y2TmlON28?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Dólar mais caro começa a impactar cotações de açúcar, trigo e café, e aumento pode chegar ao consumidor",
-      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOV29fTjd0a2NMbE1CRy00WE5yaC1GVnVxMEtNZ2ZHNkl2eGtYNlhzUE5yVXhEdnNFUHI3QV9lbWRpb0V0RkRKUnZsUVIyREhqVW5tU0JsbTQ0bHF3OG9EZW81OUM0UnlBdEo5ZUVjTVBJQVEzY0liSzZRNm9Ya1RaeWt4dTBGNnhBOG5ueF9wY09YUHg3emdMb1cybEg0aUJSRDlCRG03M1JUbVhBc3kyUzlYT0pjVVRTWGl4R0FyRkpQMDQyTTJfdmxFYmdBdXdBc3N6NUNXeTY1TnJyZUpsaUVJQWhodG4waEE?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Dólar dispara após reeleição de Lula e pressiona preços de alimentos como carne, café, açúcar e pão",
-      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQWXc5MkdRMkp3cjVpd2FYRW9PclNPZmwzY1VXY3JaQkUyN3lNMk81RHQ4V0Zpa2Jva3lTSmRJcDNacEJIbF9ia2VxTzQ0M2t4OWFramY0LVFSekhGY0xJU2N5Y3BpMllXWmUxYk1LMF8tT1h1N21fcmg3YlZxbEVmYkszWm81aGRCUExpdU41YmVIOTdtc2VmZ1lHbThUUGVyLVRpdURrbUhncGRjeWNJaEdBV243V0hId0t4WWJ0d1hFQk8wYXJfSXc0QnVXZw?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Alta do dólar e quebra de safra pressionam preços de alimentos básicos",
-      "link": "",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Endividamento recua pelo 2º mês seguido, mas ainda atinge 81,6% das famílias",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNV3ZlczgxeHpwUDZVX3BpbHZsLThfRWRuU2J6RzI0X1h2Qms1NE9HMENTU21yRXhfT3dvVHZ3UUlwVUZFdjY5bHA4LU5aWjJmRjkyWU9YTWVva0VkczdIWmx0QkVzUDNTXzkwSDN0NEwxSUlqUkxzUkI0bTZWUm1KSFlreExWaTZt?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Endividamento recua a 81,6% e inadimplência cai a 29,3% em outubro, diz CNC",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNYmpLbkFTbHJIdVZad2lWNHVaYlk1U2Rrb2Q3d3FTbl8waUNWSlk4RzNXU2NFcTBHVElRbUYzbkRCamsycnpDZGlVaEs3eld3bE1UWjNZbkdtOHV3a1hTMjFZdVBfejFBYXp4TDN1Y1FzaUlNLVp6X2tvOGNNaHVUdzB3Tk9FVVNYOXktcnVTOC1tMldPTm5pVVB3VEN4MFRMNHFKTQ?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Endividamento atinge 81,6% das famílias brasileiras em outubro",
-      "link": "",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Presidente do Paraguai, Santiago Peña, renuncia após crise bancária",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQdUY4R2s1eTBnTW12bmIyMm9oQTJNTmNDdU1zMFVCUDFZVVhNS2VLNURLT0hVZHRoTmNBbUNwOEc2Z1ltaTRuOS1lMmo4MDVlYmYzQnRCQnI0VW9oSk9vVFR5dG1Za2hiMnhfZWhodHZRRkU0RHk2bHc2b1RDclZlYTJhRGpYN1RXRUlXTTdWN2R4eWRxbGo0MWcwRU41YXNXN3FFY3NrTGlSb0hSS2VFOXM2ZGJnMXRM0gHHAUFVX3lxTFB6UE0temRvNU9mTTNwb2pVUE10dUNaMjJEWXhWcXNsZmF6NS1kX2xzbnNxNmlUMWxoSkJ4azVwR29SRlk1QkEycy1Bek1sTFpZLTB6MTVfbmlicjhlSDdTZ3VaeVo5Z1pVd3hQQlZYcVJuTnJkR1FGVnBYRnZqMDU5Vk9KYnZQMlFVbE40aGRLajIyYzZmU3RERXhHOERXV1pUb3NybjNsOUg5RE0wZ2ZGME9mVUpOVVQ1MVpiVTczSXBMWHJYMTg?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Presidente do Paraguai renuncia ao cargo em meio a crise bancária",
-      "link": "",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Ataques russos deixam Kiev sem luz e elevam para 37 o número de mortes",
-      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcFlKdHdCa2daYVVOTWNTQk41YzN4UUZBbkxQN0lTQXY4VnJnejVnNm5YT1FHamRqZzJVZ0dpeDlyOVU1bWxKUGp3VUJBTThKMXFhV0k3S0xxd2RlR3FsVGdjVXlFZlZoeV8yYV96NURNLUlscTBfRjE5UGZrdWxKUVlfNG9MR24wU0tweW5FOG9lem9qaUxLZ2VTVEstaTJwU0wyeGh0X0tnX2NCNjlXNzFFdzkwb2oyNmJxSFBVMVJNczUxV25pNmJR?oc=5",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Ataques russos contra rede elétrica deixam Kiev sem energia",
-      "link": "",
-      "data": "2026-11-05"
-    },
-    {
-      "titulo": "Lucro do Assaí no 3º trimestre cresce 119%",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPT0kwOVM3c0hYb3gxcU5lVVhWTFNPT19GMEU0ZlZaT19tbWhTVVhxV2l3N2x4ckRVZmVncmhqX2RlWGpJdk44T1BzWFRraFpJZkQtVUhacDFZYm5LX1dnTVhPRWJ0d1VBWEZhQmYyb2E4d0xQMWI4YmpHT25MTF9mdjY2NnJNMGlQTGYxamc4T0dhU1BkSWNIWTI2dWxCcXd4ODV2SU44TDdNUdIBuAFBVV95cUxOdGJuSDljVTJpLWlyX25QenpGekM3NXhHZE8tdEtSSlBGZ1ZHOHh2cVV5bTNsVjFQamxZREtEZmxwLTBBcHFtOEI3ZXZsRk95eENkZWgzc0U2eEFEZGMtS1lELTN4V2FneTFFeGVURjRFMEFDZ3VudS1kdHFnWjhoZWFONjRJMGJTQVdfN0ZhVFk0Ynd4dzRNMEdOVE5fNTNVOWxDSlJMU2tMMWc3cjJ2a2ZyZUlmc3Zo?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Assaí tem lucro recorrente de R$ 248 milhões no terceiro trimestre de 2026, alta de 55,2%",
-      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNa2Rkc25lVjZwSUxVSXRQOU93aUNQU1l1c2NzS01CbkFzVXpINHBjZzU2dlIzUGxuRDZya29iUVhYTzEtSWcxOHZSNTUycTlGWnBTREtJeXRaY0dKQWxCREE2ZlM2M1R4bFVaVndSVXJqWFlPVmZ3X0lBSXNKTTROd0s2TjNsRkQzV19uT2pDY0VkVDJsZXJPT3owSUt6d0JVUFg2ajdXRmJUVUVIcENwSGUzaUpmanRQTUNVRHNVVTQzNjdJaEhndllPSW1rZjFWdE1aZ01TcEdnZHdLMEE?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Lucro do Assaí (ASAI3) avança 55%, a R$ 248 milhões, e CEO espera 'Natal mais gordo' sem bets",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQa2hSMWk5emVfZjdEX3R5TTJVVkxUNjR0ajRMZkhfeHlYcXc1Q3A0aXhkVkhYc3QtUHU3X1RBRTZYRUZtbUd0a25ucFUzMllPNWZab1JZTlhoOHBiTjZEZWFTQ0EwX0czRnJ4Y3VCYnpObFE0ME4ybVVSNDVuYTVCZUxsN0VHb2NVb2wxWnZqWlo4WmE5Z29KVWw1ZDBLZEF0UXlZUHIzWnZ3dXNzMmUyUWNnd21acmFV?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Lucro do Assaí (ASAI3) subiu 152,6% no terceiro trimestre de 2026, para R$ 384 milhões",
-      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9ZV0dyRURMMjc4SGxPOTU2SlFrZFdyLUpjZGgteDVlMjd1V2tGc254MHlqTUJfbHkzQmc5LTNIQ0E2SUtzS3l6SWwyVllCZVJwTWR0a09PV2U?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Assaí (ASAI3) lucra R$ 384 milhões no 3T26, alta de 152,6%",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1pYUZDTXBtMlVOTXU4bi1RUnp0VHR0eU13U3oxdktSekxVSEg1OXlIa0YteXlfYWhXRHlfSDFoTkZEQmRlakFnUjBBQk9LR3RITmo4cHNvUVFWYTFaa1FjVUEtMzlUTmlORFFfTFpn?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Fato relevante Sendas (Assaí): o que a nova recompra sinaliza ao acionista",
-      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQenlPa1VDblUyR00zakFTcnlHbUVWTV9ZYjVYUTBqa0tpZGhTbGgya0RaZ09VSHpOb1l1QjJvdzdMOEZKU1RKUGJGX1NGUkdCOWFKaW5iaXJvTVJTcUlEUmltc1VmUUU4WndSdk9nN2M1R210eU44OE53cXNBVTZZN2lieVFseTREc0gyQldMZEJrenZmRzBmVFpuTGRmdmNaSjR6d3JGQW83Ukk1STBIU3c3SVZqTEJzMVE?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Assaí (ASAI3) aprova recompra de até 11 mi de ações ordinárias",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNTTJmRDVNLXhGNXJFQ0tlWVk4YS1BTmlNOFFEVWZwUDV3NWFtZmwzMC1FYmNqODZFZlZzejhkdlplSGxJQVYxckM5LUdxdmRuczFqbDBPV2haT2hBbXhjQnVlZW5PaC1xN0lJUHVYWW5TTmVQZEc4dnFzZlVCVDRibmFwUnpabzk4Ym9ONlJ5OEhFQnJqZFFzVUFFUktzblk?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Lucro de Assaí salta 152,63% no terceiro trimestre de 2026, para R$ 384,00 mi",
-      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9qYjA2NHJzMWRyMm5udnpGMzFVbDl6ZVpiV3h4V3R2b3h1dEVPQTRqS0tNemd1TDlMWEc1Z0hfdU9Yd1RJcEtfOHVUVE45M3VTRkZ0UzV3Umc?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Assaí registra salto de 152% no lucro do terceiro trimestre e anuncia recompra de ações",
-      "link": "",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Carrefour vende 22 lojas do Atacadão por R$ 1 bilhão e terrenos dos supermercados ganharão outra operação; entenda o negócio milionário",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPbHRyZmtfM3dwTE9TZFBLUlRHZ18xSi05VWZ5cV8yQURZaEdMc01JcWw1eGxXYmVyR21BaUdhOTVfQU9VSkNRMDQ0czlndW9wNUZBbC0xV1lFSThIcXpmWjdJUW1faVVtbGlxa1VKVWN5cTVySmpfUzIyZmk2UFB4QVZDZFF6MGwyZnVv?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Carrefour vende 22 lojas do Atacadão por R$ 1 bilhão em estratégia de ativos",
-      "link": "",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "O Supermercados BH deu mais um passo na troca de bandeira das lojas do Epa em Minas Gerais. Nesta terça-feira (3/11), quatro unidades da capital passaram a operar com a marca do grupo de Pedro Lourenço. Além delas, uma loja em Conselheiro Lafai",
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9GWWJQYk1NZlBON29KS3JwMThzQnpzWndNQ3Y1dTZqc2gzN3c5emFJRG9JREdJcjR2U1I5ZEVFUEM5S2tYWDhEYld3cUU3TVpqX3c?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Supermercados BH abre feirão com vagas de emprego em Belo Horizonte; veja como se candidatar",
-      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNUEhLMlAtbV90bnJyaVhORDg5NjFnRGMwRWZMOU1tNndiYkFkdlpSdDNkVkFFZnhxRjhULThDRjVJN2hURUZuRVFaYURKZWx5TjU1WFZrUl9xNUZaU2pWa0c4bjJuZldsVEtWendocHZxeG9ITnN5bmVSbmdCbmVhUWg3V01ObGpHdmIzU1JheXBkcUlsR0U0YVNLSkNaZDB0bGk0VTRxUUNHWFlSMnM3clJfMkU5d183V2F2QktPNXQ2T25GWFNpZ2lkUnNCNzNjUVZVU1JfSXFkNW9WOXdkZ0Jn?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Supermercados BH avança na conversão de unidades da rede Epa em Minas Gerais",
-      "link": "",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Lojas Renner descontinua projeção de crescimento da receita do varejo",
-      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTEJXNFJtdi1PSHZYbjFWSTFEZHpqUExaQWtxOWV4cEowLTB4M1lNakkxQlk4TUN6LTVub2lkSEo5RVZYRGEzSUswSDc4QTVVLXB5emZkaHJTOE9JSllqVFpzQmIwWUhuYkxJSkd4WXQ2LUpEczloVkY2d3RwbmtBTWRjamVBc3d5NXlkbVNDQ3dUdGtrRVhBVllaTHdaU0ZKWlhZZjVEbDdpWWVLdU1LRnRPanJ4R2FKSjlVQzRkRkRhSG85WkFPc3ln?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Lucro da C&A (CEAB3) cai 23,3% no 3T26, a R$ 56,5 milhões, mas supera projeções",
-      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5iUUVLa0RBYTc5ZEdvOFhPRUg4bGlzOWZ4WUlYLWNsa3ZrM0V1LUhVQVp1ZkNQVjJSMkM4UlZvd0RwcmJIcjV6VEtzNDhxaDVfUjVQSTlEb2xoaDNaUDhhVzNYb3Y5VGFOZ2dBYmNrOA?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Varejo de moda enfrenta queda nos lucros e revisão de projeções financeiras",
-      "link": "",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Mart Minas promove 12º evento de adoção Pet em 38 lojas de Minas Gerais",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNaEIydDFYY192Ylpab21HU1RLTzBNOURWSUtIRlJSWXpoUVNqd0dMUEUxSTYxdTVsMG9jUHB6dTRGZGFOVlJOTk1oRlRjeEVNOXN4R3BORmR6eUFJaWZTZW1HcDVyZlZneC1MVWJXb1d3WWt3WHRDZVZXN1lfcVNkRlNiakJsMFhnd2NRUlZaWlVTd3dXS3JOYU1YOG5scWF4VzFnRA?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Mart Minas realiza Feirão de Vagas de Emprego em Divinópolis",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9HVTkySHRYUFo3Ym1ob256TmtJYkJ4emRCS2VYMFlRdDFJOTh3YTRHaEtDbUgyUlNVeG9HbUJZQWsyU1RGMGZwaGhlQjRFSzJJSm01NDR5bXBYVUlpZk9sVnByOWFDQ1MzQ3FJM2tzMXlzdllWQk4zVUk1TS1TUE0?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Mart Minas promove 12º Evento de Adoção Pet em Leopoldina e mais 37 lojas de Minas Gerais",
-      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQbVBnNkhXc01PZ0F4aXZOOGZsVFlOVFctODZJTXVnQk1VWVNJNEhTQndocHphQ1hNa2NVQXhTZnBZM2pWb0NXYzRBWmhiQl9zNlBnLU56dGd3Q0N0cFpzNjd5RU1HVzdLMWczc19hTTg1SGwza1Zna0JRX1l3LXVTY2lmallKdWpGM2RlaTRFWmtXamJWaFJLZW9ZaHFCRy10MjV2N3lzbTQwdm5maGpZaWtmd3V6QzBBcmJRbTc2R3FJYTk2MnhyeC1QNWtEX3o3ZFE?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Mart Minas promove feirão de empregos e evento de adoção pet em 38 lojas",
-      "link": "",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Vulcabras (VULC3) | Prévia do 3T26: Rebaixamos para Neutro com Varejo Fraco",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNeEp0bE5nU3k0MjZWSlNBX09ZUG00QWJKOUlHUVBPVXVqelVCZ3Z6aWdfZEtQTHZQemc2bEk0QWJESTFwUlFhYjVqQUlad2NFaTF2eGdCQ0pUcEotUEVvcDREMTQ5anpUQWFSYWw1MVNLbVRsNm9Ec25SclY5NmN6VnBId3NNUkZWbFBnYU5yYUJJNU9CUkhpLWt3bEJYVjVYdUZLVkZ6TGxaZERyMGtGV25yeHd2VmtVWFV1QkF5OGNURWFC?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Vulcabras tem recomendação rebaixada para neutro devido ao varejo fraco",
-      "link": "",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Inadimplência avança quase 40% em um ano entre famílias de alta renda, aponta CNC",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQUEJYb1FvNXFHYV91Z2Vjd1p5NGhHaG5DaWZHZGREUjBueUEtZmVqbVBYTXVkd3ZUMEptRHlpelZRcHFaNTRUOFRuQWFJUWdkNFp1Y1k1dWkwVlVyTDRCaVdmX2xvMW9tSDFXa1djUHh5YlpJZ043OGZlT255Q0NDaU1zRW1URlYy?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Inadimplência dispara quase 40% em um ano na alta renda",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVmlod2QxU2lEazRXTHpXcEoyMnFjWjhjbHR2RE1XT2dRQ016aWhrMDBYaktGdS1ySTV0c1FtRENXRjJkY0FyMEJDeUc5c25ydXVhVU1tT2lsbXo2YUcyclVQVnQxalpjeEpzSWdCNXM3U2VDem15blVrYlRTb1RhamJzTnpJMXZoeDk4ZUY3eVMxUQ?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Inadimplência sobe entre famílias de maior renda",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE4zYVUzUmp4TEZlRTF4OU9aOGVmWUdnQTc3VWhjWGVzUk5Za3ExSVo3dTJCOGNxalpySWNvaU1ZWjFTYlpidXNnNUduaGtOUTkzQ2psWkhHUnMwSUdybWtoSHdhMVlFUWEwSXZqMEFoQXdoZHVMbC1aWXFn?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Inadimplência sobe quase 40% entre brasileiros de alta renda",
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNaE8yWkk1YkRHWkhmQjBpV3NNdDJnSENmMjJPaG9FVDczRmQ0amRBM2NveS1NVTRyYmpUWmhNQmJqQUwzQ0hrV1VDWGdqZWk2LUdRRk4wVUFTdG1veHZkVnNZS0R6bXNGUkh2ZHM4V3U0cWNCZU5yRXpIQzhrVUt2Z1BUTWo?oc=5",
-      "data": "2026-11-06"
-    },
-    {
-      "titulo": "Inadimplência entre famílias de alta renda cresce quase 40% em um ano",
-      "link": "",
-      "data": "2026-11-06"
-    },
-    {
       "titulo": "Produção industrial cai 0,8% em setembro ante agosto, revela IBGE",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPOFNETDNSSHF1STlGZzNwWm9QdjNCV2ctLTcwaFlnYk5aRnc2LTJfTGFLMC1qR002aEMwUi0tV2xrSTl4NVpPenZqYTZ3Zi1RXy1obUlmc25qRTYwbmV5anJJRzdnYnVveDc2UDVxNzcwUFgwQ2FZRGtCaWlLVHdHc0lLM3FDa1JYYWcxYUtQdUVsNnpHZ1hsWUlaMm8zUzJRbG8yZGczR1A?oc=5",
       "data": "2026-11-06"
@@ -3999,6 +3749,256 @@
       "titulo": "Tensões no Oriente Médio atingem rotas comerciais e elevam alerta global",
       "link": "",
       "data": "2026-11-23"
+    },
+    {
+      "titulo": "Assaí Atacadista anuncia a terceira unidade em Osasco (SP)",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOX21xRnIwLThvTHc0T3I5ZUZ3Y05FdlJSejdPSlFJdFA3NEI0MTVJVzZ2QnN5ZDFyQUI3Q1kxTGc1OXVRcUdFUUpsNUpxWjd1MnlOYU4tRzZyMTBYMGNrMmV6dEp6Z2pIQm5UVHIxSWd6c0ZuX1F6MEI1MHRrQlprYjdWb3lRSWZMM2Z3aktWWGREclVkbUpDMU9B?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Assaí confirma abertura de sua terceira unidade em Osasco (SP)",
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPcVdLZHlvaks3X3Z6M1VmZkhKN0lKcXFubXBkNm1vQmZfX21rR1RNOXdKTHZ1S1d3bEF1b3dqSl9JMjVOVHhuQWpBaEZ6MTJqdXZBLTNWSTNDM2tCRFdjUlhDb2dkMHJwNl9waXpUWDhhMDdWWUFfUzRFdWRPbjllSmJEd21nc1hMcW9FTVYtM2YwemF1alE?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Assaí Atacadista anuncia terceira loja em Osasco (SP)",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNR0pOc3lIaHk2b3NPVmY3anJDWDBaUXo2RnJEcUhyX3lwMS1oZjhEckVIRHQ5OVhMRk9MOUdxS0V5cFpSRmw1VXpRMG1QNjlBT2d1VVdlQlVka3BvY1lBVExGaC1OdVlNVDRNMjMzMElWLVFlcGRZaGdDTHdQZks0NHQ4T3pEcG1j?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Assaí inaugura terceira loja em Osasco no dia 1º de dezembro com farmácia e mais de 300 vagas de estacionamento",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOTHJsWllnR1MzVUowVmtHTGlxbEFtbHlYNVpZd2Z0bld3eGVIQlNSZE1xQjNXeUJKN3BJMFMyRUJYbGF1UjUtNGp4NTA0RmhCbHFCMTZfTmZDekRFZXl0TEpBcUtDUG5hY3VVaVlWNkZtdk53YTZUQnFpbUVrMmJLcnRtYkd4THdHLXJSOW84bjQwX1UydG1MRGt6X2h4VC1yaUlFUjJwNnNBYnEyWjlzT05BUjRITkdaejFyMmlkbUpCemtseDJ4TXdPeFdxbEo2bVFpUkxNbw?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Aves natalinas por menos de R$ 40 e lojas abertas mais cedo: veja o que o Assaí prepara para a Black Friday",
+      "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNbUdDVzhLcm9GV0l6aFQxa2p2VFlJc2VOemxwc19SRHh1UDF2dkVkZkRxZnRMaXRyVGcyNXVmU193NHdfNVF2dEZFc3JhM1NEakNrVU4tVHpseU5OYjctVUFYd3Z5cXhZR1VDOHlhLThtVmFoMTh3dnR2S0oyTHBrbURBYmZ2N0U2OFZKU2ZTbTdZZklOSjdlcF9xSWl1R1p6NWVQckdhWDBjSVl3VXl2YVhjT2haRTZfV2FhTGxNNENTNFY1ZDVTOE1jTDhBNUxLbThiR2xHMVVNX0V2ZGR5OElUNTZFcnJzV1E4cQ?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Assaí confirma terceira loja em Osasco e antecipa ofertas de Black Friday",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "JPMorgan vê alívio no caixa do GPA (PCAR3) após renegociação de dívida trabalhista",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMkNYZHNkMVB3X3FrSTdieHdtTkZleEpXdDRFcEhHazY4ZGxnTmhMQzZPWkl5N3JiSVJQS1RLRHBSYkNfX1NFRzhMQjlxOUwySWhsYTJPeFFiMHZic0xqa1EyX3FpRkJzdmpfeDB2NmlzSTV6eVNRcy1MMXAtWlBYQUttSTBLdERjMkp1QVlhbTVWTU5MUnc0RFVCY3FmR1ZHMkM4Q0pkenlvUG5LLVlrazV5YVhSSkFMUXBV0gHAAUFVX3lxTFBCNlRtWDVkejRhVkFkM1JGLTl1MENGYkp2QnM2ek1MZF9VYWJOU1kyYmNVNGF4VFRrWFQwSXZGdU9UN2VSVjBwRVRBQUYwZlM5U3M2QVNHWkp4bnFQdUc4U1BvejNRUi1oSkNXbW8tZ3ZnTlB0ZFhWUG5sQTVwUkdSZlZjeUNmX2g2bEZWTGdkeFVBQ2NOTmtwVjRaSnBSeGRScnI2LXJ1MlF6dEtMWnBXX0JsV25qRHZZZUJMSXFacg?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "GPA: Justiça autoriza parcelamento de R$ 140 milhões em dívidas trabalhistas em até 72 vezes",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaGVSaUlKdjFSTjBaX19DN01NVUdMZkw2QUp1eFRzUWU5ODlzN3I1VDVDazU1WmZSUmoxWFhyMThCUGN4dUUwTVI0YU1VVW5KZEhQdkR5Q0dfdUxYYVlGdVBTWWk0RzRBcF8zczVjYmRCR0tDMERZRVBncHVlYVJnZHU3T1FfQmUwY29qTVFuTlExekxoMkVONGdXeWFvWXYyMlRDSFIwN1VUbXhSd0paOVJQdGhPTlIxQnBxQXZHejFaLVo0?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Justiça autoriza GPA a parcelar R$ 140 milhões em dívidas trabalhistas",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Supermercados BH inaugura novas lojas em Betim, Nova Lima e Varginha nesta segunda-feira (23)",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNX0dzZC1lanhUc3ZyQ3BKY2U1NllURzFuZm9aMnJrc0o4SUxYQXNjMUxmbDhPSjgwZlRlNFZEcThMcEQxNnBJbmh5MUtQUVlDbjNVSV9qY1FDb1JHM1NpeFppNlJjT0lBOWRWUFJjUzZackhfTzNicGkwbW4yenVFaFJTMUFId2E1SlVZRmx0OVkzdjEzRzZ4QnY2TGVBNHdfbzZxMTAzTDlfLUEwY1RTMGRua1FQb0Fmekt4dnNtZnJQZ2YycloxV05fNWFvaWRtVWt1MVBFZ9IB3AFBVV95cUxNdVd4b25GNU1TeW8yZUIxV2ZSMEx2VWxDaEd1ZXRQU1hrVTNVRDZfNDU5THcySEJFZURzdTVhY3NWTkNPSGFJZFlyOVlmbUxVSGotemc3OUhCUXhPYlp2RWN4aW1PNExtVDJSQmNXd2o3bXliXzczeTFDbTR3SWdVWnVYaDhvTk1CdUVkcGItN1BZZlNYY3BYcUhmVFNlNnBLSjIyU19oNkNWRDY5S1NPeUJ6eXR3d1FhcHl1SXljbklkbTNuV05tZTg2Tkpjbnh3TkpMVThnMWdWVEst?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Betim, Nova Lima e Varginha ganham novos Supermercados BH nesta segunda; confira endereços",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNQy1TcWJDMjVTZm1YLTJXbUtGZVJDRWZVNnhxQlp4M1Jwa0x5QTZWM01PV2hzOFViSFZ2aERueTZxcTBOd0x5aEJCWFdKWVJ5TlZNbndhT1RiYWZaeW43X1JjRVdYVDVWSnlYSHFLS3M5ZTU2SXVvOFhmYXFWM204RkFIRERmZHMxR09CVkExNmtELUo0NXU5NFpFZjRoaGdkcDdSSndTUGpBN3pvUlZLeG1FWkVIcXJzaHMwVHp3c2Ezd0FRRE0ta2VDUDVjZFE?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Loja do EPA no Centro de Sete Lagoas começa a passar por mudança para Supermercados BH",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNOFZZZ21NZ0tjekxBSk01Z0l6cFdSakVfbWxQeFJiMlhyckx2WVlRZXV5Y1BMc085SUF6VzlBT2V3aE1PRnZlWndPZ3A2XzFtam5KY0lRdzdTeEJ2U0JxYUdubUloSHFzdTZSZlNwbFpxX3I3TXJLQWNLcGlNUHE3VmVfellDMk9OZFBlckdjRXV0OUpJZl9DeGhWUW56MXdmNUVKVmxSVkpTT2k3Sk1RWTlTWnlLWUc5VHFrNWIyUnJZUkVQa1E?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Supermercados BH inaugura três unidades em Minas Gerais e converte loja do EPA",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Molina, da MBRF, Prevê um dos Melhores Natais para o Varejo com Recuo das Bets",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPb0l3ZjdBclp3alZsRElwVzNnR2pfR0MtUk5GYnowTXlaa3Z2WFZFbEtCOUlaZ1I1SWItdmN2SzFWUUg4NUxNWnhkUGJuNjVpZ2x6cmJmanlVbzZBY1hTcFN5N2lzVXBXTUh0bTd5VkU4OVllT04yM2Y4Njd1WktyM0dHZ0VoMU90aTBkbndySU9kd3hDaWV6b3RPOTVyN3dlMUtOWjA5R0lnMGZhRjZZZ0NxRmY0NDd5cWFv?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "O Natal é um grande motor do varejo alimentar brasileiro e traz para dezembro um dos maiores picos de consumo do ano. Tanto é que esse é o mês com maior média de faturamento do setor¹, e a categoria de comemorativos é responsável por puxar 44% do",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE0tWHM0Z1BzcHprWTRLTHJNWmUwQVFwRFl1WFpvVnFhOUlfd19kMDJQV1ZjbnRZa29iMXc0TnJDMG9hYmJKd1JLbmE3d25CRF8ySnc?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Fim das bets pode trazer surpresa positiva para o Natal da dona da Sadia",
+      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxORnBzLThwMHZwWkc0WVRxMm9BNzU1Q3FleTFxWDFFSFM2Q3BUZXVrbWUwVkVtQ1RrejcydlFZU0NzTS05MHpVb2xpNkhVVWt6NFZzMTlXeDdSeU0tWWp6NlBIYTQxVExSem9JQ1JGOTF2TEY0RjFDOVM3NEhhNnhhNFJrM3E5bGRneV9Lb3JjOHgwVVl0ZDExOC1oSmpKQ2NKeTJfak9aeG4yNlBneDZqZkkyOWJ4QWVLWDlNaTZaM0RwS2VHVk9XQUpzUHVsc1BROWpTaW5QOHXSAdgBQVVfeXFMTkZwcy04cDB2cFpHNFlUcTJvQTc1NUNxZXkxcVgxRUhTNkNwVGV1a21lMFZFbUNUa3o3MnZRWVNDc00tOTB6VW9saTZIVVVrejRWczE5V3g3UnlNLVlqejZQSGE0MVRMUnpvSUNSRjkxdkxGNEYxQzlTNzRIYTZ4YTRSazNxOWxkZ3lfS29yYzh4MFVZdGQxMTgtaEpqSkNjSnkyX2pPWnhuMjZQZ3g2amZJMjlieEFlS1g5TWk2WjNEcEtlR1ZPV0FKc1B1bHNQUTlqU2luUDh1?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Recuo das apostas online deve impulsionar vendas de Natal no varejo alimentar",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Collabs invadem as gôndolas e viram aposta do varejo para fugir da guerra de preço",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOcVJvUVJuYk1iMHNmY3kxU19CcGNHbldWcVRTU1lmZmtYbUwyQnJqXzJ5Q2RpbUlEWFJieHQzZ1VZWjc1bnZXSk1kRjIwbXExSUNLanN2M0p5em5SNTFuVUJPNGtlMlJLcTM2TjJSNjQzX3QyYUdwSDVxdFEwZ0lSLVlQaXZvbVFSYWQ2T0pWS19TcnZmdnc5WHJxcHpCOHJaMnpvXzl6RTlfeC1NQzBXOVN0RU1QNEE?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Marcas apostam em parcerias e collabs para evitar guerra de preços nas gôndolas",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Comida mais cara faz Fazenda elevar inflação de 2026 e cortar previsão do PIB",
+      "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPVGVDNGNtamhLQ0NZa3pyMk5yak4xWTliM3RpMHR0d1hiTHN0YmZXVUZjQkRtSjE3bFp3ZmF4Z3lQUV9mSVFIa0NwVTE3dnJuYUFPcFlUSmhYbnBiZ2xENEJORVVKRzlONzhLZE8wTWR6V0pNYWxwaHhMTnNMMEM0WmFDWHI4clVocUJxSl9wYW4xYmxGQ3U5Q2pIeDJKNXdCM1FXTnprM2ZsMjR4dVpFZThEaUloSzR3aVVDQUh1M2xxcjhLVXZfa3Fsc9IB2gFBVV95cUxPNzBLck1PWlhBUGpCc0VTV21IdkQ0ejFVWWdPcFp0b1NGejIyeUVhM01CblNSTTNGbTZ0WklCUm45LTlYSjREa1ZZM0VlWmRGZFpmVDdRNmJ6eXE0ck5USHFvUU5sR1J4SEZfX05KWVI3TkJYcWJLUzhqb1RHanljOWRBbm41UWZaX2tmSjREbjZ5WXlOMkpxVS1vVGZ1a3JMeGE2SFJFYVVSdi1uam4wcDk4UlE3Q0I3SU1YQ1dqemxzWTRaZkYtcnR3b3RaNmNxOG91TEx4RnIwdw?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Fazenda alerta para forte alta dos alimentos em 2027",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSzQtLWRnaEQ1azZMRnRKZXcyU3pZYnZzcktpS3RqN3dUNWV6N3dLN0w4RzVJbFllVXFGc2RCSnBuUDg1cEM3eXdyYWRiOG1UTWNCbzdKM0dDR2t6MVNNaWI4dzBIaU1HWEVCT3BncUNEc2hucm01Sks0S0lfWHNGZnZMamNPRU1jamVLQW5aWXh6dFk5M3NaYmF5Q3I?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Governo prevê aumento da inflação e redução do PIB para 2026",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQQ29UZWxRWVRHVGhxMmp2VmZOUkJCSXBKWmViMUhLcUd3cGFMeFVKZi0zUXkzR1poUU5PY2NQYm4yQkVsOG1KOG92TTNiemF6V2tLQkZYdDZZWEpvdGhZQmRiWW5PV0thMkRLU0NJWFBpVGN2NjRhTVh4NG1rSFdXVW9CcXR1RVc1d0RZNU5tS0Q1Ym9Pa0NxLWQ0UzdZUmVfTHNKcFhObUVid1U5NXlGVFFadUxjbUNuNzcxd01VR0RnUnNlZUZQMA?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Governo Lula reduz projeção do PIB e vê inflação acima da meta para 2026",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQaHoyVExaeTBkcEdFLTBFdGtIUDhjdF9rQzlxMTVyS1R0N3AxdmNDaXd0SklXTWJYUU9oMWdMa2NhZnBIcXdmbU1RMU9GOGFHZU84UzdrNWJ0VXdYYzV5NXBVRzZ4dGpTaXE4a3VIZDk2cUN6eXNhN0JMZTJuaGc1Y3dzZjRYYzRkejk2R0x1anBWSVk5Vi1OSlBIdFYzU1pTcjQ4bC1BM1Z3dUp4SkdXazgyQkhJcWFrMkR6d09QUExjc0JtVjUzaGtva0NwTVVtanVDTFo5QTBUQ1ViaVhrakN4NElnMDg?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Alimentos podem ficar mais caros já no início de 2027, alerta Fazenda",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBocE5FaDZYRUJBODNRSkJybTFjejhNRTdzMDdnRU5oYWJKTExLekoyQjhkcWVHVmFocjJzV2VzcWtQOWdjRXVMVzhMYzRJSk5lMzlYRUoxT0xhMk91ZE1jTHlDelNELTVQbWFCV3c0Mmk1Y05oWEV2MmhtSlg?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Fazenda reduz previsão do PIB e eleva inflação para 2027",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOHEzQjl1WEZRN2Z4amdyQ2RlbUJNWHFpQzVmaFRZS0lSdElIY1hSRk9Ba3JTNDJXY19qRlY1V0JKbUZCc25nSjBOOGR1TXdnREFtZWxvd2IzOXZUX1pDUV9pd19QZ2dQNlBIZ2tyRVlEaUZ1M3hpMkhXREI1S0tXVTJLZnRYOUtwNmJLcG8xSjlFeWx4XzhhN19lTHJ1VFMzTkQzdzZCUGF6VDhiX3h1c3hqT1d6dw?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Governo reduz previsão de crescimento e aumenta estimativa de inflação",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPSGZZQzF4Q0Q1bHdJMDVZX0RVUWp4Y09lZ0VfVGJpM3Vtc241aHRsS1JTNHlGMkJwQ3htNk1WYko4V0hiM2EwYzNpZkVPSF9vOWJGcnJPZ0s5UnBJQWN0dTBSZmx1cFRXODgtQTNIWmN3a0haT1JRT0hzbWJHc1RZTXQzVUw?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Previsão do PIB de 2026 cai e inflação pode superar meta",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBLalAzYThSRmhaZXFkNFBYSjlyRUZRZldLcGU2SWZocks1SXhMcHhQSGVqLUVFMjA5akhCekk4dC1JTEZ1OW9ZOGlZZTFMMG1nTzVnZXc1M1ljdTE1UllZWVNobTc0aTEteEpMT0VRWldqUmFldzkxdQ?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Governo eleva projeção de inflação e reduz estimativa do PIB para 2026",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Dólar a R$ 6 acende alerta sobre inflação: veja como a alta pode elevar o IPCA",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQbmZnM0k1ZFB4RGU2bW80OEhwQ3pMZ2hiNDZsRG1pZ1JmamhPVDlHS21jWHR4ZmVpZ01QLU9ZbXdjTkNpZzRNTHJyN1BiTWJPUnRMUjRpcWpsM19ydlBUXzF5T1lpSDkxRjhEc3QyUXo1MDB2UjhaVmM3dkJHa3pDajZnMTdHdHZUalA2SE9uM0F6ei1jZzdpLTNWTHROclNSelVyRW9DNjBpT1lOQWVxMExqMVROcWJSc1RoN2pn0gG-AUFVX3lxTFBuZmczSTVkUHhEZTZtbzQ4SHBDekxnaGI0NmxEbWlnUmZqaE9UOUdLbWNYdHhmZWlnTVAtT1ltd2NOQ2lnNE1McnI3UGJNYk9SdExSNGlxamwzX3J2UFRfMXlPWWlIOTFGOERzdDJRejUwMHZSOFpWYzd2QkdrekNqNmcxN0d0dlRqUDZIT24zQXp6LWNnN2ktM1ZMdE5yU1J6VXJFb0M2MGlPWU5BZXEwTGoxVE5xYlJzVGg3amc?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Dólar perto de R$ 6 reforça alerta para inflação",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBMTGNvSHl4eHVleDhUNlZZVDdvLXJWVHdXUF8xN2h0eTk4TXAwNjhRczdNUTRqeEQtLVZxMFhOSXVCRk9FMV9iR0FDTW90Mm1STGcxeTM2ZlVBOTNpN3YtWnpHVWRsOWI3WlIwcUtQMThXd0xFUFNTVg?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Dólar acima de R$ 6 pode pressionar preços de alimentos e combustíveis em Goiás, avalia economista",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNaGVrUHF5TVJ1RU80b3BpYWJfZVVlXzRteTYyUkVnenFEcDE5bG9BZTJvT3N5Z2hvNGZTMTA5aGJBc3BLaWh0MnRNSDZreHNqQW9QSElfSjQ3dzRFMy1aY0lFZjU0M3NXNkpiOXQ5azk3UUtzVW8yWEEzV3hRS1lRQ2ZBV3I4bWZGM2VWSC1VX2Q4ZlpXaHNEOHliaktoRVBNaGE1eFRNVFFGTmtiQkN6a1lCcGMzekgzd1hfWkJibDJFVEZUcm0zTVN6YzhQdmp2b0swZEMzamRKVksyRGRzY0pHS2haR2c?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Dólar próximo de R$ 6 pressiona custo dos alimentos e ameaça ampliar despesas das famílias, alerta especialista",
+      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPYWt4bGdUM2lMNWtmUkRsM0U3dnlOM2ZRZW9QZEpEQ0hRYXF6a3hfdDRBVzdJN2hpVmVqWHdPcHNfM0JhcnZCZ0M1M1RpRDdWUjZORkhIaDBkYktEQ2JfSlRTeVdSRGVsWURxNUlkRUZ4dk4ySV95SkJoNXpOYmpjRUZnUzV3cEZSRkJnY3h4UTc0TjFIeXpLLWVuZjZhaWtRN00zYWpZVjdzNHR3M0FxMEotRTcxNks0aDB5clFBenVzM3Q0OXNTRG1KcW5uc3dQTm5WV2ctWjNibWFFRnBIVzlR?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Dólar perto de R$ 6 pressiona combustíveis, alimentos e viagens",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9CMEtPMUJrRlhNLXF0ejU2b0taMTU3eUdvY1B6WWU2QXNUdWt4VEgwMnZkNnR4SEJBMGc1SHpWSUZzeFFNSFJtME5SVnZxRVVlNGNmRnd6bjlxa01NcV94MlNCZFZ0ekVKdHp6MExFZktWUQ?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Dólar se aproxima de R$ 6 e ameaça o bolso dos brasileiros: veja o que pode ficar mais caro nos próximos dias",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBvVFhNVTIzc0Q4WWZUR3Z0aVRYRHptNFdUWnhSRkFsc0JuaDRhSW1nSXNic0d2OTNaN0lXcjU3QWNPenQ2b1BkZFhhMnBUQ3JoaGhYQW0zSG1TSDY0WWdUelBkd3pfMS1xYWZZcw?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Dólar acima de R$ 6: veja quais produtos podem ficar mais caros para o consumidor brasileiro",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQdkc1MmEtTEU3Wlg4M2IwczVVd2J3YTdXN1l6NTJkc3ZfUExhel9RT3ZsWDVsMFBfRWxpZnM0bmMxY1ptbXI2N2d3NmY4U0tNSndNUjVObzJrWF9TZHlkeHdxQ0Fmd3BmcFpwVldha1VqMm5US0RPS1pOMnZ0emlkclZ1bTVKb1BKSXFVM082cXlkNGVUWWNGV2xaTnh1cWZKMXFnc2lxNVl6alI0eDQ1Y3hUcmFFdTJLX3ZyUEpUeTlWNU0?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Dólar próximo de R$ 6 pressiona custos de alimentos e combustíveis",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Inadimplência de empresas e famílias bate recorde e chega a R$ 371 bi, diz FecomercioSP",
+      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOTHpyUGtJSmt0UnZoT044UXV5OUo2dzFXNFo0VW9CdjQ0aUJQWHhiWHlKSjBJTEw3V0pBLUJaVEZkbmdudTJuMWlneENNUHQ5eVZ5dUoxLTJJTGx4X1hYWjQxWlV4WmRNOHZ5OER4Rl9TaVdVU0Z0N0VuOGNVOHp4ZWs3emtJTktNaE94UlN0Y3BwUDF2WWdyWWhSVHduT3gwcjl5OW9YUElBRDcwTzhDcVV1OVRNSTA3ZDUweU5wRzN6bUx0aW0xVV9adFg2NXl2ejdn?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Inadimplência sobe para 28,9% no Espírito Santo, mas segue abaixo do registrado em 2025",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWlNjLV9Ja3NPemhNQ0RoSXRkWGZ5d2lucE54T2dtRFJpLWt1c2pHVWlfOG9qbWJWZ3RMSS1ONUtMeUxQdTlsX3VJMVg3TW1jOXZfcUU5eW5wWmo0TndpZjljd180d0NLVkotWTJrSl9QbFBUNE9kNHh1WkhOT1Vud0JKSWoyWERtYkRCR21ocjlvckpUUGVsQkhlbEZKVUJ4QkFuMXVhd25TQ2o2OUlCZUR6T2d4cE5mNEpSTmdwRQ?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Inadimplência atinge recorde de R$ 371 bilhões entre famílias e empresas",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Da Alemanha à costa da África: os sinais de que a guerra na Ucrânia está se expandindo no mundo",
+      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNYXRNeUdYMHVlUkQ2UnR1cWx5M1NWQk1pTko5VmQ5RDdjZkdaS09RWjROaWlsX3N6QlZlYms3cE10cW5tRDNrZGNjb3ZheW9IenJlNkNRVUEtZ3RzWEtEblBibm5fU1RXaHhnSXNDZVprbGhSSzlDTVBPbnozcG4tLWFjQnNvRVlZY1E0RFVBV1ZxNy1zNkd1QjNBbkN5cmtRUVc4NW1XRDlSRGNGU2VLblhyR1ltdUh3WnV5blprRU1nbThmampDX2NOTEhyODNYZkVLUDFpMVJJelJRTTJr0gHuAUFVX3lxTE1HWkREeEpPb21oRHJ6VmgwTThCYXhjLWxuR2kyV0w5emQyTGZQZzdXbUdWTkF6em0ydnZRM1hOTUJ4cFItdUZIV21Va1RsYWcxVVNFazkwRlNjOHprYnJ1WG1xS0VJNkxpekZTZEhLSHZaNlphOHFFVzNxemVaRXpHZ0Z1NmlWZlZSWUFTejJSNmNPSGhzT3NqRmdOQUxTa1BpMHU0emxKOUtPVk9DUmNEUXBUaU05eVI4b201MlFUYUtSQkRpTURHZk9RMmFFTG10UHZvZW40OXVGb0V1LTVqYzdjUThKeGlPcUpmMmc?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "VÍDEO: Menino de 7 anos é resgatado após 14 horas sob escombros na Ucrânia: 'Não tenham pressa, estou bem'",
+      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNVUN5LWdpMHZVZUJ5NHdnVDVJQmZ2ZE9YYmgwN3NnTng4WXdKX3NyUS1WSElzUjBtOW1sY0Z6OGU1aVR1T1diMzdNMUZfOGtoTTFGTW9KZFVoUmJVVW9uTHdsUHZMdXVGeURwNW9hQUZWcWtxVVFxQmZvTDZfNTVnTWFSelByeVkyeG1hQnhab3ViWGhoRFhyUWU4RF9JRDlHOFZjSndxR1ZTYkF0cU9KUHNDTWJJT1BYNmZBM1JWMjR3SWluMWFEY3k0R1k1WE54MkY4b1ZtcGlMdlHSAeoBQVVfeXFMTlowajY3MkR0RDNjR2UySGw4STl6bVRQWFRxT2hFVWZMZUh4VWRrS1RpVHhvajdKdUR1alhoV2tGY21RUkxNc2F5cS1SMzJxb3FJeDBRQWhuSmNkTTQ5WlMxX0xtdDBPa19qTi0zT3dXb3djRDdwWHJ6c0tLOFliZ3diSk1EdzVkdXhndnR4ZzhMWklUdE9TaXBUZW05R2JObEJJRTk5V25Tbk9KRUdUTzFtTXowT2JacFljZm53MklPRFpCV3pSLXU2Z1d3Tl92UFByMnQyclFIT09wN3ZRVjY2T1V3allwdkxn?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Rússia e Ucrânia relatam destruição de mais de 2 mil drones em 24 horas",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPa2szdWk1QWNNeExiMlpwRVN3QWlIZHFuZE5qTWxOeFEzZUJ2X01FclJMRFFhTWpTcnZ4a2dQN0hZemN6aXZaX1UwWlRrQzVpWTlkb1hFbjlNUFFjaFJPb1VzT2tWMGY1aTVHOGNkdFY5azhvMXR4R2ZSOFVsZE9nbzdnU0k1MklrTDJnLW1OWmVPbngxVGtROXZLUkF6YlpXYktkT2JNNmR3aU1peGJLOVdhY0Yzdw?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Chefe da Otan chama violação russa do espaço aéreo polonês de perigosa",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNTW42YTloNDN5TVE1QVRhdmF6V0VyQk13MTlXMUxWOW5JdHcyS3kwOGxUTkdCOWd4XzdnTC1sUmhzMDFJNUtldFpKMGJtYlpqYW92Q3MxNzNsSEpobFFobWt3TUREODF3MTdJVWlNZ2lxUVpwYXpBNFEyTUs2XzdYRHVnOVh5dGpjWVNsSmhydWJNSkJGcmd3QmhaZTBoanRSdENVZHNfSU1sMFkxQi1Xdl9tU3M?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Contaminação em Gaza pode ameaçar saúde por gerações, diz relatório",
+      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNRURRcFpuOWVud0FUQTNfUG5GU3kybkhCaWFPaklyUThEVTR2MGVlN1BobGEwemlKcVNmUXN1RXRzYmxKc0dCeGt0RERGUl9wOGVVSmM2cEhIQWhxdTZXMHE4dy1vb000cWJQTFFYUjBBNUN4cTJfSy1mcW94dHdIMFpBV2tvVGZBdHh6U3pPQ3RUU3ZRc3RNQnU0ckloMXhpb1diNE5vbkNwMVlnZmw4UmdrSXZNM0twdTJIOWdvZFAwY0VZYWZjT2JtUExPUXBNWXAwa3R6VHY?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Otan alerta para violação de espaço aéreo em meio a escalada de drones na Ucrânia",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Polarização na França: líder da extrema-esquerda ganha terreno em disputa com Marine Le Pen",
+      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQSWxseHdHaEp5Q08wbzFHM3dVZWE0b0ZKdzdKTThtdGF3YXM5eHQzQ1JCWjhMNHJwbU1mczNLT2R2b2s4RzR4cHBTZFNDZlNPWlJ2LW92NXVEal9QMGhpTHMxMi1vbmN2TjZHOG40Y1RpdmY3QzRmYlFvdWI3U2ZVSF9vc3U0UkpoWmE1NXYyWk9aT3I0dE9UX2g4OWtjbXdOUVlkTFZYZkt1b01LX2o2Smo1TTZ4d0RrZjhSU0lKZS1tWExhdFg2ZDM4MFJUYlgtSnNadU13d3dFUWEwSjlsMGpSSdIB8gFBVV95cUxNUzhXVS0wRmVLSUxPMVNYeTVJNU1uUG1PQXgzSHVjTjB1elJQMENuZWtRdVhqNzBVYXZCQmVBZHdPYWVXWFI5dmhQcnVMMHJkd3BhRFo1SE1vQ3lRRjhwRk90TzdKQ3JUbEZ4clExZXRfUEk2ZkUySmlERWNFWUlHRXVDdXFZeTg5Y2E4bXNlVGxrUlE2bVRUSExYWlM1dGtvcEExX3dBX1E1dXFHWGhabkJralNzclJoV2RHVG5keHQ2QkNyejk3Y0JYOEkyLW94enN2T1ZHU0lnOHl5OHV6ay1KMFRQWElZZ2d3eDJJWDI4UQ?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "'Queremos destruir o capitalismo': por dentro das manifestações dos 'black blocks' da esquerda radical na França",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBLbExwOFROYjJ1MEIySVFNemY2b0ZMZnNmOUpfb0pMc0g5YVRadUZqUlFjTzJwUWRPQlNmLUNOcmZjY0JRa3BiTzFzNWV3a2JEZ2diZXZTZGJRNkp3WnE3WTFwY9IBaEFVX3lxTFB0aXNFLU0zeUlsTHVMeTJycHJ1d09zbjJ1aEpubDRrRVAwUFl3NFpZM0RGdllNQVJ0VHVHdG5hdlRGdVNybS1ZVll2ZUc2S1FjVURscjRQaWxJVTJNOEdrNWtKSHprT2NB?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Polarização política na França gera tensão entre extremos e protestos radicais",
+      "link": "",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Hipótese de Reimann: O mais famoso problema da Matemática que funcionário da Anthropic diz ter solucionado com ajuda da IA",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE51N1Y4aFZLVi1RTTlsaU5vMU1ReF9maVd1YzUydTVTUF9DUFhJRDVILXlsbnFaMGFWemh2SDZvYzljX2tpN2NnenVIa25GOGhDejNLZ3FxM3ZuXzhGR0FiYUNCSdIBaEFVX3lxTE1UWXNmd3NHd0JZZzA3MmthVDJkeXdIeG01QVQwR3FOR3FiRFZaTnJWTkd3X1ZxYmlUZDlXb0FLRDlIUkU1bUE0ZGh6M3hrbXNnSk1WZW5WWmR0VWx4TGEwN2xMMHphZzlK?oc=5",
+      "data": "2026-11-24"
+    },
+    {
+      "titulo": "Inteligência artificial auxilia na possível solução de problema matemático histórico",
+      "link": "",
+      "data": "2026-11-24"
     }
   ],
   "curiosidades": [
@@ -4022,6 +4022,7 @@
     "O Efeito Gruen e a desorientação planejada",
     "A ciência por trás do corredor de checkout",
     "A psicologia sonora dos pisos",
-    "O poder olfativo das padarias"
+    "O poder olfativo das padarias",
+    "O efeito da largura dos corredores"
   ]
 }
